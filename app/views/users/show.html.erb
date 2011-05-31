@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @user.id %>
+</p>
+
+<p>
+  <b>Encrypted passwd:</b>
+  <%= @user.encrypted_passwd %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%= @user.team_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
