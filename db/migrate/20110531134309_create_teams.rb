@@ -6,6 +6,11 @@ class CreateTeams < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    create_table :team_user do |t|
+      t.integer :team_id
+      t.integer :user_id
+    end
   end
 
   def self.down
