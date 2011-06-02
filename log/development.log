@@ -1,0 +1,130 @@
+
+
+Started GET "/team" for 127.0.0.1 at Thu Jun 02 20:34:46 +0800 2011
+
+Mysql2::Error (Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/team" for 127.0.0.1 at Thu Jun 02 20:36:24 +0800 2011
+
+ActionController::RoutingError (No route matches "/team"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Thu Jun 02 20:36:29 +0800 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+Completed   in 19ms
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+
+NameError (undefined local variable or method `team_user' for Team(Table doesn't exist):Class):
+  app/models/team.rb:2
+  app/controllers/teams_controller.rb:5:in `index'
+
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Thu Jun 02 20:37:45 +0800 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+Completed   in 8ms
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+
+NameError (undefined local variable or method `team_user' for Team(Table doesn't exist):Class):
+  app/models/team.rb:2
+  app/controllers/teams_controller.rb:5:in `index'
+
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (38.7ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (15.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20110531134222)
+  [1m[35mSQL (8.7ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `encrypted_passwd` varchar(255), `team_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (9.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110531134222')[0m
+Migrating to CreateTeams (20110531134309)
+  [1m[35mSQL (10.0ms)[0m  CREATE TABLE `teams` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (31.7ms)[0m  [1mCREATE TABLE `team_user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `team_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110531134309')
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW KEYS FROM `team_user`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `teams`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `teams`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `users`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `users`[0m
+
+
+Started GET "/teams" for 127.0.0.1 at Thu Jun 02 20:38:13 +0800 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+Completed   in 10ms
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+
+NameError (undefined local variable or method `team_user' for #<Class:0xb6ab7eec>):
+  app/models/team.rb:2
+  app/controllers/teams_controller.rb:5:in `index'
+
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Thu Jun 02 20:39:05 +0800 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+Completed   in 8ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (team_user).):
+  app/models/team.rb:2
+  app/controllers/teams_controller.rb:5:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Thu Jun 02 20:40:31 +0800 2011
+  Processing by TeamsController#index as HTML
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT `teams`.* FROM `teams`[0m
+Rendered teams/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 190ms (Views: 40.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Thu Jun 02 21:07:44 +0800 2011
+  Processing by TeamsController#index as HTML
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT `teams`.* FROM `teams`[0m
+Rendered teams/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 23ms (Views: 10.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at Thu Jun 02 21:07:46 +0800 2011
+  Processing by TeamsController#new as HTML
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+Rendered teams/_form.html.erb (78.6ms)
+Rendered teams/new.html.erb within layouts/application (88.9ms)
+Completed 200 OK in 125ms (Views: 112.1ms | ActiveRecord: 1.0ms)

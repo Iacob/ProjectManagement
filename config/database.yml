@@ -7,7 +7,7 @@ development:
   pool: 5
   username: yong
   password: yong
-  socket: /tmp/mysql.sock
+  #socket: /tmp/mysql.sock
 #  adapter: sqlite3
 #  database: db/development.sqlite3
 #  pool: 5
@@ -23,7 +23,7 @@ test:
   pool: 5
   username: yong
   password: yong
-  socket: /tmp/mysql.sock
+  #socket: /tmp/mysql.sock
 #  adapter: sqlite3
 #  database: db/test.sqlite3
 #  pool: 5
@@ -36,7 +36,7 @@ production:
   pool: 5
   username: yong
   password: yong
-  socket: /tmp/mysql.sock
+  #socket: /tmp/mysql.sock
 #  adapter: sqlite3
 #  database: db/production.sqlite3
 #  pool: 5

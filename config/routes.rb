@@ -1,4 +1,6 @@
 ProjectManagement::Application.routes.draw do
+  resources :team_users
+
   resources :teams
 
   resources :users
