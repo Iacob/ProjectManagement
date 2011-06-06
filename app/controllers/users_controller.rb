@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
+    @userTeams = @user.team
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,6 +36,8 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @allTeams = Team.all
+    @userTeams = @user.team
   end
 
   # POST /users
@@ -57,6 +60,10 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
+
+    _user_teams = params[:selected_user_teams]
+
+    @user.team_ids = (_user_teams.nil?)?nil:_user_teams.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

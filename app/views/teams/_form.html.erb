@@ -16,20 +16,18 @@
     <!-- %= f.text_field :id % -->
   </div>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "Team name" %><br />
     <%= f.text_field :name %>
   </div>
 
+  Member user:<br />
   <div style="border: 1px solid black; min-width:300px; max-width:30%">
     <div class="field">
-      <input type="checkbox" name="selected_team_users[]" checked />
-      <label for="selected_team_users[]">check1</label><br />
-      <input type="checkbox" name="selected_team_users[]" checked />
-      <label for="selected_team_users[]">check1</label>
-      <!-- %= f.check_box :user % -->
-      <!-- % @team.user.each do |u| % -->
-        <!-- %= u.id % -->
-      <!-- % end % -->
+      <% @userAll.each do |u|  %>
+        <% _teamUserExists = true if @teamUsers.exists?(u) %>
+        <%= checkbox_and_label("selected_team_users", "selected_team_users[]", u.name, u.id, _teamUserExists) %>
+	<br />
+      <% end %>
     </div>
   </div>
 

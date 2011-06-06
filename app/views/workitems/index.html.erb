@@ -1,0 +1,25 @@
+<h1>Listing workitems</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @workitems.each do |workitem| %>
+  <tr>
+    <td><%= workitem.id %></td>
+    <td><%= workitem.name %></td>
+    <td><%= link_to 'Show', workitem %></td>
+    <td><%= link_to 'Edit', edit_workitem_path(workitem) %></td>
+    <td><%= link_to 'Destroy', workitem, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Workitem', new_workitem_path %>

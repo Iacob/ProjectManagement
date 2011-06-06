@@ -4,8 +4,6 @@
   <tr>
     <th style="text-align:left;min-width:100px">Id</th>
     <th style="text-align:left;min-width:200px">Name</th>
-    <th>Encrypted passwd</th>
-    <th>Team</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,15 +13,12 @@
   <tr>
     <td><%= user.id %></td>
     <td></td>
-    <td><%= user.encrypted_passwd %></td>
-    <td><%= user.team_id %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-<%= sayHello %>
 <br />
 
 <%= link_to 'New User', new_user_path %>

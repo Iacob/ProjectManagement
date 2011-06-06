@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
+    @teamUsers = @team.user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,6 +36,8 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
+    @userAll = User.all
+    @teamUsers = @team.user
   end
 
   # POST /teams
@@ -58,6 +61,10 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
+    _team_users = params[:selected_team_users]
+
+    @team.user_ids = (_team_users.nil?)?nil:_team_users.map {|id_str| id_str.to_i}
+    
     respond_to do |format|
       if @team.update_attributes(params[:team])
         format.html { redirect_to(@team, :notice => 'Team was successfully updated.') }
