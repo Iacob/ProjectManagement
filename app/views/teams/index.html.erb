@@ -1,9 +1,9 @@
-<h1>Listing teams</h1>
+<h1>Team List</h1>
 
-<table>
+<table style="border: 1px solid black">
   <tr>
-    <th>Id</th>
-    <th>Name</th>
+    <!-- th>Id</th -->
+    <th style="text-align:left;min-width:200px">Team Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= team.id %></td>
+    <!-- td><%= team.id %></td -->
     <td><%= team.name %></td>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
@@ -19,7 +19,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= sayHello %>
 <br />
 
 <%= link_to 'New Team', new_team_path %>
