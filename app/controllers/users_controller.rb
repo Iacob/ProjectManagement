@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
+    @allTeams = Team.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +45,10 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+
+    _user_teams = params[:selected_user_teams]
+
+    @user.team_ids = (_user_teams.nil?)?nil:_user_teams.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @user.save

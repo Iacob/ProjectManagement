@@ -15,5 +15,6 @@ class CreateTeams < ActiveRecord::Migration
 
   def self.down
     drop_table :teams
+    drop_table :team_user
   end
 end

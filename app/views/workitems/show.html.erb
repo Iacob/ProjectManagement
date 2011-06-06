@@ -10,6 +10,15 @@
   <%= @workitem.name %>
 </p>
 
+<b>For projects:</b>
+<div style="border:1px solid black; min-width:300px; max-width:30%">
+  <div style="margin-left:20px">
+    <% @workitemProjects.each do |p| %>
+      <i><%= p.name %></i>
+    <% end %><br />
+  </div>
+</div>
+<p />
 
 <%= link_to 'Edit', edit_workitem_path(@workitem) %> |
 <%= link_to 'Back', workitems_path %>

@@ -19,6 +19,18 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
+  For projects:<br />
+  <div style="border: 1px solid black; min-width:300px; max-width:30%">
+    <div class="field">
+      <% @allProjects.each do |p|  %>
+        <% _workitemProjectExists = true if @workitemProject.exists?(p) %>
+        <%= checkbox_and_label("selected_workitem_projects", "selected_workitem_projects[]", p.name, p.id, _workitemProjectExists) %>
+	<br />
+      <% end %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

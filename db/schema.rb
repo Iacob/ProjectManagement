@@ -10,11 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531134309) do
+ActiveRecord::Schema.define(:version => 20110606093006) do
 
-  create_table "team_user", :force => true do |t|
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_user", :id => false, :force => true do |t|
     t.integer "team_id"
     t.integer "user_id"
+  end
+
+  create_table "team_users", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "teams", :force => true do |t|
@@ -23,9 +36,23 @@ ActiveRecord::Schema.define(:version => 20110531134309) do
     t.datetime "updated_at"
   end
 
+  create_table "user_teams", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "encrypted_passwd"
     t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name",             :null => false
+  end
+
+  create_table "workitems", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
   # GET /teams/new.xml
   def new
     @team = Team.new
+    @userAll = User.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +45,10 @@ class TeamsController < ApplicationController
   # POST /teams.xml
   def create
     @team = Team.new(params[:team])
+
+    _team_users = params[:selected_team_users]
+
+    @team.user_ids = (_team_users.nil?)?nil:_team_users.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @team.save

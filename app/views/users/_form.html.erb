@@ -24,7 +24,7 @@
   <div style="border: 1px solid black; min-width:300px; max-width:30%">
     <div class="field">
       <% @allTeams.each do |t|  %>
-        <% _userTeamExists = true if @userTeams.exists?(t) %>
+        <% _userTeamExists = true if ((!@userTeams.nil?) and @userTeams.exists?(t)) %>
         <%= checkbox_and_label("selected_user_teams", "selected_user_teams[]", t.name, t.id, _userTeamExists) %>
 	<br />
       <% end %>

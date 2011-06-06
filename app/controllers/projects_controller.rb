@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    @projectWorkitems = @project.workitems
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    @allWorkitems = Workitem.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +37,18 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @allWorkitems = Workitem.all
+    @projectWorkitems = @project.workitems
   end
 
   # POST /projects
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+
+    _project_workitems = params[:selected_project_workitems]
+
+    @project.workitem_ids = (_project_workitems.nil?)?nil:_project_workitems.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @project.save
@@ -57,6 +65,10 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+
+    _project_workitems = params[:selected_project_workitems]
+
+    @project.workitem_ids = (_project_workitems.nil?)?nil:_project_workitems.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
