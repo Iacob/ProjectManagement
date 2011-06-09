@@ -9,6 +9,8 @@ ProjectManagement::Application.routes.draw do
 
   resources :teams
 
+  resources :team
+
   resources :users
 
   # The priority is based upon order of creation:
