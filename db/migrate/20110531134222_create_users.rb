@@ -2,7 +2,7 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
       t.integer :id
-      t.name :name
+      t.string :name
       t.string :encrypted_passwd
       t.integer :team_id
 

@@ -1,3 +1,5 @@
+require 'web_auth'
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
@@ -46,6 +48,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
+    # Encrypt password.
+    _password = params[:user][:password]
+    @user.crypted_password = encrypt_password(_password)
+
     _user_teams = params[:selected_user_teams]
 
     @user.team_ids = (_user_teams.nil?)?nil:_user_teams.map {|id_str| id_str.to_i}
@@ -65,9 +71,17 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
+    _oldPassword = @user.crypted_password
+
+    # Encrypt user password.
+    _password = params[:user][:password]
+    if ((_password.nil?) or (_password == ''))
+      @user.crypted_password = _oldPassword
+    else
+      @user.crypted_password = encrypt_password(_password)
+    end
 
     _user_teams = params[:selected_user_teams]
-
     @user.team_ids = (_user_teams.nil?)?nil:_user_teams.map {|id_str| id_str.to_i}
 
     respond_to do |format|

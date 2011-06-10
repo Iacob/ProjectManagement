@@ -70,6 +70,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (= 3.0.5)
   mysql2 (< 0.3)
   rails (= 3.0.5)
   sqlite3

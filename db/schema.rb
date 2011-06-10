@@ -12,13 +12,20 @@
 
 ActiveRecord::Schema.define(:version => 20110606093006) do
 
+  create_table "project_workitem", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "workitem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "team_user", :id => false, :force => true do |t|
+  create_table "team_user", :force => true do |t|
     t.integer "team_id"
     t.integer "user_id"
   end
@@ -44,11 +51,11 @@ ActiveRecord::Schema.define(:version => 20110606093006) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "encrypted_passwd"
+    t.string   "name"
+    t.string   "crypted_password"
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",             :null => false
   end
 
   create_table "workitems", :force => true do |t|
