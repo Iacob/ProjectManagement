@@ -8629,3 +8629,618 @@ Started GET "/projects" for 127.0.0.1 at Sat Jun 11 14:28:44 +0800 2011
   [1m[36mProject Load (0.2ms)[0m  [1mSELECT `projects`.* FROM `projects`[0m
 Rendered projects/index.html.erb within layouts/application (15.9ms)
 Completed 200 OK in 58ms (Views: 22.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:44:01 +0800 2011
+  Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:44:07 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (4.4ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 173ms (Views: 71.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:46:11 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 20ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:16:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:46:58 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (1.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 27ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (71.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (78.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:47:11 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 20ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:47:18 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (1.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+Completed   in 18ms
+
+ArgumentError (parameter hash expected):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Jun 11 21:47:37 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (1.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 24ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:47:43 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 21ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:49:56 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 19ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:50:11 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 19ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:54:13 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 26ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.6ms)
+
+
+Started GET "/users?page=0" for 127.0.0.1 at Sat Jun 11 21:54:53 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"0"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+Completed   in 22ms
+
+WillPaginate::InvalidPage ("0" given as value, which translates to '0' as page number):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users?page=0" for 127.0.0.1 at Sat Jun 11 21:55:15 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"0"}
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+Completed   in 18ms
+
+WillPaginate::InvalidPage ("0" given as value, which translates to '0' as page number):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:55:41 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 27ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:56:00 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 20ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:59:14 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 25ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 21:59:41 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (0.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 90ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.3ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:00:09 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (0.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 32ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.2ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:22:42 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 56ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:22:43 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 20ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (23.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (88.3ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:22:43 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 21ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.5ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:22:44 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Completed   in 26ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:22:45 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users`
+Completed   in 20ms
+
+TypeError (can't convert nil into Array):
+  app/controllers/users_controller.rb:17:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (77.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (84.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:24:02 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 47ms (Views: 16.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:25:18 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 43ms (Views: 18.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:25:34 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 112ms (Views: 20.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:25:46 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 39ms (Views: 18.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Sat Jun 11 22:25:50 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 2
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 45ms (Views: 18.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:25:51 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 40ms (Views: 18.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:26:12 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 41ms (Views: 19.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:26:21 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (74.8ms)
+Completed 200 OK in 106ms (Views: 81.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:29:55 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 2 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 40ms (Views: 18.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:31:18 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 41ms (Views: 19.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:32:14 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` LIMIT 30 OFFSET 0
+Rendered users/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 50ms (Views: 28.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:32:27 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 30 OFFSET 0[0m
+Rendered users/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 47ms (Views: 21.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:32:53 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.4ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 107ms (Views: 21.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Sat Jun 11 22:32:56 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` LIMIT 3 OFFSET 3
+Rendered users/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 44ms (Views: 22.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:32:58 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 45ms (Views: 21.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Sat Jun 11 22:33:01 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 3[0m
+Rendered users/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 36ms (Views: 16.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:33:03 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 40ms (Views: 19.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:33:37 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 41ms (Views: 20.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Sat Jun 11 22:33:42 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (1.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 3 OFFSET 3
+Rendered users/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 52ms (Views: 24.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:33:47 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 41ms (Views: 19.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:33:57 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 51ms (Views: 22.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:34:34 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (76.6ms)
+Completed 200 OK in 109ms (Views: 83.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:35:12 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 41ms (Views: 19.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:35:20 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 52ms (Views: 19.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Sat Jun 11 22:35:27 +0800 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 3 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM `users`
+Rendered users/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 42ms (Views: 19.7ms | ActiveRecord: 1.7ms)
