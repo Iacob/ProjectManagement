@@ -1,0 +1,25 @@
+<h1>Listing holidays</h1>
+
+<table>
+  <tr>
+    <th>Holiday date</th>
+    <th>Descr</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @holidays.each do |holiday| %>
+  <tr>
+    <td><%= holiday.holiday_date %></td>
+    <td><%= holiday.descr %></td>
+    <td><%= link_to 'Show', holiday %></td>
+    <td><%= link_to 'Edit', edit_holiday_path(holiday) %></td>
+    <td><%= link_to 'Destroy', holiday, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Holiday', new_holiday_path %>

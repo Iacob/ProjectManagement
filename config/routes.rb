@@ -1,15 +1,11 @@
 ProjectManagement::Application.routes.draw do
+  resources :holidays
+
   resources :workitems
 
   resources :projects
 
-  resources :user_teams
-
-  resources :team_users
-
   resources :teams
-
-  resources :team
 
   resources :users
 

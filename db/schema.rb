@@ -10,13 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110606093006) do
+ActiveRecord::Schema.define(:version => 20110611043553) do
 
-  create_table "project_workitem", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "workitem_id"
+  create_table "holidays", :force => true do |t|
+    t.date     "holiday_date"
+    t.string   "descr"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "project_workitem", :id => false, :force => true do |t|
+    t.integer "project_id",  :null => false
+    t.integer "workitem_id", :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -25,16 +30,9 @@ ActiveRecord::Schema.define(:version => 20110606093006) do
     t.datetime "updated_at"
   end
 
-  create_table "team_user", :force => true do |t|
+  create_table "team_user", :id => false, :force => true do |t|
     t.integer "team_id"
     t.integer "user_id"
-  end
-
-  create_table "team_users", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "teams", :force => true do |t|
@@ -43,19 +41,12 @@ ActiveRecord::Schema.define(:version => 20110606093006) do
     t.datetime "updated_at"
   end
 
-  create_table "user_teams", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "crypted_password"
+    t.string   "encrypted_passwd"
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name",             :null => false
   end
 
   create_table "workitems", :force => true do |t|
