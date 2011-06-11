@@ -1,4 +1,11 @@
+require 'web_auth'
+
 class WorkitemsController < ApplicationController
+
+  # Authentication
+  include ModuleDbAuthenticate
+  before_filter :authenticate
+
   # GET /workitems
   # GET /workitems.xml
   def index

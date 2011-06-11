@@ -1,4 +1,11 @@
+require 'web_auth'
+
 class HolidaysController < ApplicationController
+
+  # Authentication
+  include ModuleDbAuthenticate
+  before_filter :authenticate
+
   # GET /holidays
   # GET /holidays.xml
   def index

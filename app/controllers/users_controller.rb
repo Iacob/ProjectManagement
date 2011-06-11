@@ -1,6 +1,11 @@
 require 'web_auth'
 
 class UsersController < ApplicationController
+
+  # Authentication
+  include ModuleDbAuthenticate
+  before_filter :authenticate
+
   # GET /users
   # GET /users.xml
   def index

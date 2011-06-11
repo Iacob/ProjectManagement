@@ -1,4 +1,11 @@
+require 'web_auth'
+
 class TeamsController < ApplicationController
+
+  # Authentication
+  include ModuleDbAuthenticate
+  before_filter :authenticate
+
   # GET /teams
   # GET /teams.xml
   def index

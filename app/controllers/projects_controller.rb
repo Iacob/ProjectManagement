@@ -1,4 +1,11 @@
+require 'web_auth'
+
 class ProjectsController < ApplicationController
+
+  # Authentication
+  include ModuleDbAuthenticate
+  before_filter :authenticate
+
   # GET /projects
   # GET /projects.xml
   def index

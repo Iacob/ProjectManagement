@@ -31,3 +31,13 @@ def web_auth(username, password)
     end
   end
 end
+
+module ModuleDbAuthenticate
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      next web_auth(username, password)
+    end
+  end
+
+end
