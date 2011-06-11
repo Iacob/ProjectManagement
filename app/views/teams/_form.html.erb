@@ -25,7 +25,7 @@
     <div class="field">
       <% @userAll.each do |u|  %>
         <% _teamUserExists = true if ((!@teamUsers.nil?) and @teamUsers.exists?(u)) %>
-        <%= checkbox_and_label("selected_team_users", "selected_team_users[]", u.name, u.id, _teamUserExists) %>
+        <%= checkbox_and_label("selected_team_users", "selected_team_users[]", u.login, u.id, _teamUserExists) %>
 	<br />
       <% end %>
     </div>

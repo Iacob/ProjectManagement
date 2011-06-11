@@ -11,10 +11,10 @@
 </p>
 
 <b>Member Users:</b>
-<div style="border:1px solid black; min-width:300px; max-width:30%">
+<div style="min-width:300px; max-width:30%">
   <div style="margin-left:20px">
     <% @teamUsers.each do |u| %>
-      <i><%= u.name %></i>
+      <i><%= u.login %></i>
     <% end %><br />
   </div>
 </div>
