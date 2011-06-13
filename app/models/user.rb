@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :team, :join_table => :team_user, :uniq => true
+  set_table_name :user
+  has_and_belongs_to_many :teams, :class_name => "Team", :foreign_key => :user_id, :association_foreign_key => :team_id, :join_table => :team_user, :uniq => true
   attr_accessor :password
-
-  #cattr_reader :per_page
-  #@@per_page = 2
-
 end

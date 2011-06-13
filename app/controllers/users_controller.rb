@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-    @userTeams = @user.team
+    @userTeams = @user.teams
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @allTeams = Team.all
-    @userTeams = @user.team
+    @userTeams = @user.teams
   end
 
   # POST /users

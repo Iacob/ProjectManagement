@@ -45,7 +45,7 @@ class WorkitemsController < ApplicationController
   def edit
     @workitem = Workitem.find(params[:id])
     @allProjects = Project.all
-    @workitemProject = @workitem.projects
+    @workitemProjects = @workitem.projects
   end
 
   # POST /workitems

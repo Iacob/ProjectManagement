@@ -1,14 +1,20 @@
 class CreateProjects < ActiveRecord::Migration
   def self.up
-    create_table :projects do |t|
+    create_table :task do |t|
       t.integer :id
       t.string :name
 
       t.timestamps
     end
+
+    create_table :task_workitem do |t|
+      t.integer :task_id
+      t.integer :workitem_id
+    end
   end
 
   def self.down
-    drop_table :projects
+    drop_table :task
+    drop_table :task_workitem
   end
 end
