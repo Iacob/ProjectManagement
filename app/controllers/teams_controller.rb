@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.xml
   def show
     @team = Team.find(params[:id])
-    @teamUsers = @team.user
+    @teamUsers = @team.users
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,7 +45,7 @@ class TeamsController < ApplicationController
   def edit
     @team = Team.find(params[:id])
     @userAll = User.all
-    @teamUsers = @team.user
+    @teamUsers = @team.users
   end
 
   # POST /teams
