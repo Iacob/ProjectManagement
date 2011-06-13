@@ -30,6 +30,14 @@
       <% end %>
     </div>
   </div>
+  <br />
+
+  User roles:<br />
+  <div style="border: 1px solid black; min-width:300px; max-width:30%">
+    <div class="field">
+      <%= checkbox_and_label_roles("selected_user_roles", "selected_user_roles[]", @user.roles) %>
+    </div>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

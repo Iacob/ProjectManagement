@@ -3,7 +3,7 @@ require 'web_auth'
 class ProjectsController < ApplicationController
 
   # Authentication
-  include ModuleDbAuthenticate
+  include ModuleDbAuthenticateAdmin
   before_filter :authenticate
 
   # GET /projects

@@ -3,7 +3,7 @@ require 'web_auth'
 class WorkitemsController < ApplicationController
 
   # Authentication
-  include ModuleDbAuthenticate
+  include ModuleDbAuthenticateAdmin
   before_filter :authenticate
 
   # GET /workitems

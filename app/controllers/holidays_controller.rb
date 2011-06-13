@@ -3,7 +3,7 @@ require 'web_auth'
 class HolidaysController < ApplicationController
 
   # Authentication
-  include ModuleDbAuthenticate
+  include ModuleDbAuthenticateAdmin
   before_filter :authenticate
 
   # GET /holidays

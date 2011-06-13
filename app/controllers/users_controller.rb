@@ -3,7 +3,7 @@ require 'web_auth'
 class UsersController < ApplicationController
 
   # Authentication
-  include ModuleDbAuthenticate
+  include ModuleDbAuthenticateAdmin
   before_filter :authenticate
 
   # GET /users
@@ -63,6 +63,12 @@ class UsersController < ApplicationController
 
     @user.team_ids = (_user_teams.nil?)?nil:_user_teams.map {|id_str| id_str.to_i}
 
+    # Extract selected user roles information.
+    _user_roles = params[:selected_user_roles]
+    _user_roles_str = nil
+    _user_roles_str = _user_roles.join(',') if (!_user_roles.nil?)
+    @user.roles = _user_roles_str
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
@@ -90,6 +96,12 @@ class UsersController < ApplicationController
 
     _user_teams = params[:selected_user_teams]
     @user.team_ids = (_user_teams.nil?)?nil:_user_teams.map {|id_str| id_str.to_i}
+
+    # Extract selected user roles information.
+    _user_roles = params[:selected_user_roles]
+    _user_roles_str = nil
+    _user_roles_str = _user_roles.join(',') if (!_user_roles.nil?)
+    @user.roles = _user_roles_str
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
