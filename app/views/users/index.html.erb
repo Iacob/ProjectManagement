@@ -1,9 +1,11 @@
 <h1>Listing users</h1>
 
+<div style="border: 1px solid black; padding: 5px">
 <table>
   <tr>
     <th style="text-align:left;min-width:100px">Id</th>
     <th style="text-align:left;min-width:200px">Login Name</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +18,11 @@
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= icon_link('/images/icons/stats.png', "/users/#{user.id}/statistics", 20, 20) %></td>
   </tr>
 <% end %>
 </table>
+</div>
 <br />
 
 <center><%= will_paginate @users %></center>

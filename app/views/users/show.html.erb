@@ -33,4 +33,5 @@
 <br />
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> |
+<%= icon_link('/images/icons/stats.png', "#{@user.id}/statistics", 20, 20) %>

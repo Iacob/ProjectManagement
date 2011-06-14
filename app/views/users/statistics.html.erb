@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<center><p><b>User Statistics</b></p></center>
+
 <p>
   <b>Id:</b>
   <%= @user.id %>
@@ -20,7 +22,7 @@
   End Date: <%= date_select(:stat_date, :end, :default => @end_date) %>
 </p>
 
-<%= submit_tag 'Start Query' %>
+<%= submit_tag 'Start Calculate' %>
 
 <% end %>
 
@@ -29,8 +31,8 @@
 <% unless @reports.nil? %>
 <table>
   <tr>
-    <th>Project name</th>
-    <th>Workitem name</th>
+    <th><div style="margin-right: 10px">Project name</div></th>
+    <th><div style="margin-right: 10px">Workitem name</div></th>
     <th>Hours</th>
   </tr>
 
