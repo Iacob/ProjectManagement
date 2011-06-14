@@ -12,6 +12,11 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :task_id
       t.integer :workitem_id
     end
+
+    create_table :team_task do |t|
+      t.integer :team_id
+      t.integer :task_id
+    end
   end
 
   def self.down

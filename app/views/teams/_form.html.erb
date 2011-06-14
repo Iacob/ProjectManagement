@@ -31,6 +31,17 @@
     </div>
   </div>
 
+  Assigned projects:<br />
+  <div style="border: 1px solid black; min-width:300px; max-width:30%">
+    <div class="field">
+      <% @allProjects.each do |p|  %>
+        <% _teamProjectExists = true if ((!@teamProjects.nil?) and @teamProjects.exists?(p)) %>
+        <%= checkbox_and_label("selected_team_projects", "selected_team_projects[]", p.name, p.id, _teamProjectExists) %>
+	<br />
+      <% end %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

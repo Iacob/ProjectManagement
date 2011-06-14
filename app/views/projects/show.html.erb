@@ -18,7 +18,17 @@
     <% end %><br />
   </div>
 </div>
-<p />
+<br />
+
+<b>Teams working on this project:</b>
+<div style="min-width:300px; max-width:30%">
+  <div style="margin-left:20px">
+    <% @projectTeams.each do |t| %>
+      <i><%= t.name %></i><br />
+    <% end %>
+  </div>
+</div>
+<br />
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

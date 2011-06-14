@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -24,8 +20,20 @@
   <div style="border: 1px solid black; min-width:300px; max-width:30%">
     <div class="field">
       <% @allWorkitems.each do |i|  %>
-        <% _projectWorkitemExists = true if @projectWorkitems.exists?(i) %>
+        <% _projectWorkitemExists = true if ((!@projectWorkitems.nil?) and @projectWorkitems.exists?(i)) %>
         <%= checkbox_and_label("selected_project_workitems", "selected_project_workitems[]", i.name, i.id, _projectWorkitemExists) %>
+	<br />
+      <% end %>
+    </div>
+  </div>
+  <br />
+
+  Teams working on this project:<br />
+  <div style="border: 1px solid black; min-width:300px; max-width:30%">
+    <div class="field">
+      <% @allTeams.each do |t|  %>
+        <% _projectTeamExists = true if ((!@projectTeams.nil?) and @projectTeams.exists?(t)) %>
+        <%= checkbox_and_label("selected_project_teams", "selected_project_teams[]", t.name, t.id, _projectTeamExists) %>
 	<br />
       <% end %>
     </div>

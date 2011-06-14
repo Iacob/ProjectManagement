@@ -20,5 +20,15 @@
 </div>
 <p />
 
+<b>Assigned projects:</b>
+<div style="min-width:300px; max-width:30%">
+  <div style="margin-left:20px">
+    <% @teamProjects.each do |p| %>
+      <i><%= p.name %></i><br />
+    <% end %>
+  </div>
+</div>
+<p />
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

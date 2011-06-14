@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @projectWorkitems = @project.workitems
+    @projectTeams = @project.teams
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,6 +35,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @allWorkitems = Workitem.all
+    @allTeams = Team.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +46,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    # Workitem
     @allWorkitems = Workitem.all
     @projectWorkitems = @project.workitems
+    # Team
+    @allTeams = Team.all
+    @projectTeams = @project.teams
   end
 
   # POST /projects
@@ -53,9 +59,15 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
 
+    # Set associate workitems.
     _project_workitems = params[:selected_project_workitems]
 
     @project.workitem_ids = (_project_workitems.nil?)?nil:_project_workitems.map {|id_str| id_str.to_i}
+
+    # Set associate teams.
+    _project_teams = params[:selected_project_teams]
+
+    @project.team_ids = (_project_teams.nil?)?nil:_project_teams.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @project.save
@@ -73,9 +85,15 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
+    # Set associate workitems.
     _project_workitems = params[:selected_project_workitems]
 
     @project.workitem_ids = (_project_workitems.nil?)?nil:_project_workitems.map {|id_str| id_str.to_i}
+
+    # Set associate teams.
+    _project_teams = params[:selected_project_teams]
+
+    @project.team_ids = (_project_teams.nil?)?nil:_project_teams.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

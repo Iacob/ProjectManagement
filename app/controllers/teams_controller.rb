@@ -22,6 +22,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @teamUsers = @team.users
+    @teamProjects = @team.projects
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,6 +35,7 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @userAll = User.all
+    @allProjects = Project.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +46,12 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
+    # User
     @userAll = User.all
     @teamUsers = @team.users
+    # Project
+    @allProjects = Project.all
+    @teamProjects = @team.projects
   end
 
   # POST /teams
@@ -56,6 +62,10 @@ class TeamsController < ApplicationController
     _team_users = params[:selected_team_users]
 
     @team.user_ids = (_team_users.nil?)?nil:_team_users.map {|id_str| id_str.to_i}
+
+    _team_projects = params[:selected_team_projects]
+
+    @team.project_ids = (_team_projects.nil?)?nil:_team_projects.map {|id_str| id_str.to_i}
 
     respond_to do |format|
       if @team.save
@@ -76,6 +86,10 @@ class TeamsController < ApplicationController
     _team_users = params[:selected_team_users]
 
     @team.user_ids = (_team_users.nil?)?nil:_team_users.map {|id_str| id_str.to_i}
+
+    _team_projects = params[:selected_team_projects]
+
+    @team.project_ids = (_team_projects.nil?)?nil:_team_projects.map {|id_str| id_str.to_i}
     
     respond_to do |format|
       if @team.update_attributes(params[:team])
