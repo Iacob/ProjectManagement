@@ -1,6 +1,6 @@
 class CreateHolidays < ActiveRecord::Migration
   def self.up
-    create_table :holidays do |t|
+    create_table :holiday do |t|
       t.date :holiday_date
       t.string :descr
 
@@ -9,6 +9,6 @@ class CreateHolidays < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :holidays
+    drop_table :holiday
   end
 end

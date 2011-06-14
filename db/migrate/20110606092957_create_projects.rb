@@ -3,6 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :task do |t|
       t.integer :id
       t.string :name
+      t.string :description
 
       t.timestamps
     end

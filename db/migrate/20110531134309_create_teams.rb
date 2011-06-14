@@ -1,6 +1,6 @@
 class CreateTeams < ActiveRecord::Migration
   def self.up
-    create_table :teams do |t|
+    create_table :team do |t|
       t.integer :id
       t.string :name
 
@@ -14,7 +14,7 @@ class CreateTeams < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :teams
+    drop_table :team
     drop_table :team_user
   end
 end

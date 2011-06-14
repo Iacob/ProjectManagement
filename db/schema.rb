@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(:version => 20110614042539) do
 
-  create_table "holidays", :force => true do |t|
+  create_table "holiday", :force => true do |t|
     t.date     "holiday_date"
     t.string   "descr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "reports", :force => true do |t|
+  create_table "report", :force => true do |t|
     t.date     "date"
     t.string   "description"
     t.integer  "hours"
@@ -57,28 +57,15 @@ ActiveRecord::Schema.define(:version => 20110614042539) do
     t.integer "user_id"
   end
 
-  create_table "team_users", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user", :force => true do |t|
     t.string   "login"
+    t.string   "name"
     t.string   "crypted_password"
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",            :null => false
     t.string   "roles",            :null => false
-  end
-
-  create_table "user_teams", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "workitem", :force => true do |t|

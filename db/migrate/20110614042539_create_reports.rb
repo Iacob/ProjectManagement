@@ -1,6 +1,6 @@
 class CreateReports < ActiveRecord::Migration
   def self.up
-    create_table :reports do |t|
+    create_table :report do |t|
       t.integer :id
       t.date :date
       t.string :description
@@ -14,6 +14,6 @@ class CreateReports < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :reports
+    drop_table :report
   end
 end
