@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110611043553) do
+ActiveRecord::Schema.define(:version => 20110614042539) do
 
   create_table "holidays", :force => true do |t|
     t.date     "holiday_date"
@@ -19,15 +19,37 @@ ActiveRecord::Schema.define(:version => 20110611043553) do
     t.datetime "updated_at"
   end
 
-  create_table "project_workitem", :id => false, :force => true do |t|
-    t.integer "project_id",  :null => false
-    t.integer "workitem_id", :null => false
+  create_table "reports", :force => true do |t|
+    t.date     "date"
+    t.string   "description"
+    t.integer  "hours"
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "workitem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "projects", :force => true do |t|
+  create_table "task", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "task_workitem", :id => false, :force => true do |t|
+    t.integer "task_id"
+    t.integer "workitem_id"
+  end
+
+  create_table "team", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_task", :id => false, :force => true do |t|
+    t.integer "task_id", :null => false
+    t.integer "team_id", :null => false
   end
 
   create_table "team_user", :id => false, :force => true do |t|
@@ -35,24 +57,35 @@ ActiveRecord::Schema.define(:version => 20110611043553) do
     t.integer "user_id"
   end
 
-  create_table "teams", :force => true do |t|
-    t.string   "name"
+  create_table "team_users", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "encrypted_passwd"
+  create_table "user", :force => true do |t|
+    t.string   "login"
+    t.string   "crypted_password"
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",             :null => false
+    t.string   "email",            :null => false
+    t.string   "roles",            :null => false
   end
 
-  create_table "workitems", :force => true do |t|
+  create_table "user_teams", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workitem", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "descr"
   end
 
 end

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @user.id %>
+</p>
+
+<p>
+  <b>Login Name:</b>
+  <%= @user.login %>
+</p>
+
+<%= form_tag(:method => :POST) do %>
+
+<p>
+  Start Date: <%= date_select(:stat_date, :start, :default => @start_date) %>
+</p>
+
+<p>
+  End Date: <%= date_select(:stat_date, :end, :default => @end_date) %>
+</p>
+
+<%= submit_tag 'Start Query' %>
+
+<% end %>
+
+<br />
+
+<% unless @reports.nil? %>
+<table>
+  <tr>
+    <th>Project name</th>
+    <th>Workitem name</th>
+    <th>Hours</th>
+  </tr>
+
+<% @reports.each do |report| %>
+  <tr>
+    <td><%= report.task_name %></td>
+    <td><%= report.workitem_name %></td>
+    <td><%= report.hours %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

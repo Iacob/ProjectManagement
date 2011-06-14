@@ -125,4 +125,31 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # GET /users/1/statistics
+  # GET /users/1/statistics.xml
+  def statistics
+    @user = User.find(params[:id])
+    @start_date
+    @end_date
+    @users
+
+    _stat_date = params[:stat_date]
+    unless _stat_date.nil?
+      @start_date = Date.new(_stat_date["start(1i)"].to_i, _stat_date["start(2i)"].to_i, _stat_date["start(3i)"].to_i)
+      @end_date = Date.new(_stat_date["end(1i)"].to_i, _stat_date["end(2i)"].to_i, _stat_date["end(3i)"].to_i)
+
+      @reports = Report.select("sum(hours) as hours, task.name as task_name, workitem.name as workitem_name") \
+        .joins(:user, :project, :workitem) \
+        .where("report.date" => @start_date..@end_date, "report.user_id" => @user.id)\
+        .group("task_id, workitem_id, task_name, workitem_name") \
+        .order("task_id, workitem_id") \
+        .all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
+    end
+  end
 end
