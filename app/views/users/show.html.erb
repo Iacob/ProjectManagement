@@ -14,11 +14,23 @@
 <div style="min-width:300px; max-width:30%">
   <div style="margin-left:20px">
     <% @userTeams.each do |t| %>
-      <i><%= t.name %></i>
-    <% end %><br />
+      <i><%= t.name %></i><br />
+    <% end %>
   </div>
 </div>
-<p />
+<br />
+
+<b>User roless:</b>
+<div style="min-width:300px; max-width:30%">
+  <div style="margin-left:20px">
+    <% unless (@user.roles.nil?)%>
+      <% @user.roles.split(',').each do |r| %>
+        <i><%= r %></i><br />
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<br />
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
