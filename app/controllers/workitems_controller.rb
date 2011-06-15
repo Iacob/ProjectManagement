@@ -54,6 +54,10 @@ class WorkitemsController < ApplicationController
     @workitem = Workitem.new(params[:workitem])
     
     _workitem_projects = params[:selected_workitem_projects]
+    puts "The information is:"
+    puts _workitem_projects.inspect
+    _project_ids = _workitem_projects.map {|id_str| id_str.to_i}
+    puts _project_ids.inspect
 
     @workitem.project_ids = (_workitem_projects.nil?)?nil:_workitem_projects.map {|id_str| id_str.to_i}
 

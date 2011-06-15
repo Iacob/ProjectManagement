@@ -15644,3 +15644,2190 @@ Started GET "/projects/4/edit" for 127.0.0.1 at Tue Jun 14 01:47:39 -0700 2011
 Rendered projects/_form.html.erb (35.3ms)
 Rendered projects/edit.html.erb within layouts/application (43.8ms)
 Completed 200 OK in 141ms (Views: 52.9ms | ActiveRecord: 181.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 19:40:00 -0700 2011
+  Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 19:40:06 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (425.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (157.3ms)[0m  SHOW TABLES
+  [1m[36mUser Load (238.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (70.2ms)
+Completed 200 OK in 1064ms (Views: 131.5ms | ActiveRecord: 823.1ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Tue Jun 14 19:40:13 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (2.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 3
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 35ms (Views: 16.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users?page=1" for 127.0.0.1 at Tue Jun 14 19:40:15 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mSQL (7.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 57ms (Views: 30.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 19:40:20 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (19.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (3.2ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (8.3ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (56.3ms)
+Completed 200 OK in 150ms (Views: 90.4ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 19:40:21 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (5.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.9ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.9ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered teams/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 54ms (Views: 18.7ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 19:40:34 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 58ms (Views: 33.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:40:35 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (8.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (4.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (1.9ms)[0m  SELECT `workitem`.* FROM `workitem`
+Rendered workitems/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 80ms (Views: 29.0ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at Tue Jun 14 19:40:37 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (3.2ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (2.1ms)[0m  describe `team_task`
+  [1m[36mProject Load (11.3ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (16.6ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )[0m
+  [1m[35mTeam Load (21.8ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 2 )
+Rendered projects/show.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 141ms (Views: 19.0ms | ActiveRecord: 63.1ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at Tue Jun 14 19:40:42 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (4.1ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.7ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 3 )
+Rendered projects/show.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 111ms (Views: 26.0ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:40:52 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (4.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.7ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )[0m
+Rendered workitems/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 73ms (Views: 20.8ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/workitems/2/edit" for 127.0.0.1 at Tue Jun 14 19:40:54 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task`
+  [1m[36mProject Load (12.4ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 2 ) LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 2 ) LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 2 ) LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 2 ) LIMIT 1
+Rendered workitems/_form.html.erb (126.6ms)
+Rendered workitems/edit.html.erb within layouts/application (136.0ms)
+Completed 200 OK in 208ms (Views: 131.2ms | ActiveRecord: 21.2ms)
+
+
+Started POST "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:40:57 -0700 2011
+  Processing by WorkitemsController#update as HTML
+  Parameters: {"commit"=>"Update Workitem", "workitem"=>{"name"=>"workitem2", "id"=>"2"}, "authenticity_token"=>"Aa1Rn2R8BhckWiM9588g3jldCXc5jWf4uvOvGszKMI8=", "utf8"=>"✓", "id"=>"2", "selected_workitem_projects"=>["4"]}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (4.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (25.1ms)[0m  INSERT INTO `task_workitem` (`workitem_id`, `task_id`) VALUES (4, 2)
+  [1m[36mSQL (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/workitems/2
+Completed 302 Found in 191ms
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:40:57 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (2.2ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+Rendered workitems/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 62ms (Views: 19.2ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at Tue Jun 14 19:41:00 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (11.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (5.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (3.0ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (5.1ms)[0m  describe `task_workitem`
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (7.1ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.8ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 3 )
+Rendered projects/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 136ms (Views: 23.1ms | ActiveRecord: 38.7ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:41:06 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (5.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.8ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+Rendered projects/show.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 193ms (Views: 20.7ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:41:13 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (5.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+  [1m[35mTeam Load (1.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+Rendered projects/show.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 112ms (Views: 33.9ms | ActiveRecord: 59.7ms)
+
+
+Started GET "/workitems/2/edit" for 127.0.0.1 at Tue Jun 14 19:41:17 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (3.6ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.8ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 2 ) LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 2 ) LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 2 ) LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 2 ) LIMIT 1[0m
+Rendered workitems/_form.html.erb (14.7ms)
+Rendered workitems/edit.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 171ms (Views: 24.5ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:41:22 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (2.3ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (7.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 97ms (Views: 39.3ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:41:37 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (5.0ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (2.5ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (4.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.9ms)[0m  describe `team_user`
+  [1m[36mSQL (6.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 199ms (Views: 21.7ms | ActiveRecord: 31.7ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:41:42 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.1ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 73ms (Views: 25.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/workitems/1" for 127.0.0.1 at Tue Jun 14 19:41:45 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (3.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.8ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (6.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (3.7ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+Rendered workitems/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 86ms (Views: 20.5ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:41:49 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.9ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )[0m
+Rendered workitems/show.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 168ms (Views: 16.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/projects/4/edit" for 127.0.0.1 at Tue Jun 14 19:41:54 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  describe `task_workitem`
+  [1m[36mSQL (6.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (2.7ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (7.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.7ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 1 AND (`task_workitem`.task_id = 4 ) LIMIT 1
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 2 AND (`task_workitem`.task_id = 4 ) LIMIT 1[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 1 AND (`team_task`.task_id = 4 ) LIMIT 1
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 2 AND (`team_task`.task_id = 4 ) LIMIT 1[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 3 AND (`team_task`.task_id = 4 ) LIMIT 1
+Rendered projects/_form.html.erb (19.4ms)
+Rendered projects/edit.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 171ms (Views: 63.6ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:42:10 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (2.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.7ms)[0m  SELECT `workitem`.* FROM `workitem`
+Rendered workitems/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 42ms (Views: 19.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/workitems/2/edit" for 127.0.0.1 at Tue Jun 14 19:42:15 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (8.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 2 ) LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 2 ) LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 2 ) LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 2 ) LIMIT 1[0m
+Rendered workitems/_form.html.erb (23.9ms)
+Rendered workitems/edit.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 197ms (Views: 41.1ms | ActiveRecord: 16.4ms)
+
+
+Started POST "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:42:21 -0700 2011
+  Processing by WorkitemsController#update as HTML
+  Parameters: {"commit"=>"Update Workitem", "workitem"=>{"name"=>"workitem2", "id"=>"2"}, "authenticity_token"=>"Aa1Rn2R8BhckWiM9588g3jldCXc5jWf4uvOvGszKMI8=", "utf8"=>"✓", "id"=>"2"}
+  [1m[35mSQL (11.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (8.2ms)[0m  DELETE FROM `task_workitem` WHERE `task_workitem`.`task_id` = 2 AND `task_workitem`.`workitem_id` IN (4)
+  [1m[36mSQL (13.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/workitems/2
+Completed 302 Found in 93ms
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:42:21 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (4.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (1.4ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+Rendered workitems/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 53ms (Views: 10.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:42:23 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.8ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+Rendered projects/show.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 70ms (Views: 18.7ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:42:32 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (2.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem`
+Rendered workitems/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 48ms (Views: 23.6ms | ActiveRecord: 44.8ms)
+
+
+Started GET "/workitems/1" for 127.0.0.1 at Tue Jun 14 19:42:34 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (6.2ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )[0m
+Rendered workitems/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 165ms (Views: 16.5ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 19:42:50 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 37ms (Views: 17.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 19:42:50 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 50ms (Views: 22.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at Tue Jun 14 19:42:54 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_user`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (28.9ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 3 )
+Rendered users/show.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 81ms (Views: 22.2ms | ActiveRecord: 34.8ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 19:43:02 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (2.2ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (4.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (6.5ms)[0m  describe `team_task`
+  [1m[36mTeam Load (6.8ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered teams/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 94ms (Views: 24.9ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at Tue Jun 14 19:43:05 -0700 2011
+  Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (4.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT `team`.* FROM `team` WHERE `team`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 2 )[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 2 )
+Rendered teams/show.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 140ms (Views: 45.3ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at Tue Jun 14 19:43:15 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (8.2ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (6.3ms)[0m  describe `team_user`
+  [1m[36mSQL (5.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (6.3ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 3 )
+Rendered users/show.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 108ms (Views: 33.2ms | ActiveRecord: 29.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at Tue Jun 14 19:43:19 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mSQL (2.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 3 )
+Rendered users/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 44ms (Views: 15.7ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at Tue Jun 14 19:43:24 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 3 )
+Rendered users/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 44ms (Views: 17.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at Tue Jun 14 19:43:30 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 2 )
+Rendered users/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 48ms (Views: 14.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 19:44:24 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.8ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered projects/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 43ms (Views: 17.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:44:25 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (11.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 52ms (Views: 15.3ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at Tue Jun 14 19:44:29 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (12.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (4.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 2 LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.2ms)[0m  describe `team_user`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.7ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 2 )[0m
+Rendered projects/show.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 119ms (Views: 25.2ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:44:33 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (3.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+Rendered workitems/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 67ms (Views: 14.9ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/workitems/1" for 127.0.0.1 at Tue Jun 14 19:44:36 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (9.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (6.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (4.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )[0m
+Rendered workitems/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 104ms (Views: 14.0ms | ActiveRecord: 24.9ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:44:41 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mSQL (5.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 160ms (Views: 31.6ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 19:44:54 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (3.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (6.1ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 83ms (Views: 27.1ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/projects/4/edit" for 127.0.0.1 at Tue Jun 14 19:44:59 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (2.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (3.5ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+  [1m[35mWorkitem Load (1.0ms)[0m  SELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 1 AND (`task_workitem`.task_id = 4 ) LIMIT 1
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 2 AND (`task_workitem`.task_id = 4 ) LIMIT 1[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 1 AND (`team_task`.task_id = 4 ) LIMIT 1
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 2 AND (`team_task`.task_id = 4 ) LIMIT 1[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 3 AND (`team_task`.task_id = 4 ) LIMIT 1
+Rendered projects/_form.html.erb (22.5ms)
+Rendered projects/edit.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 194ms (Views: 134.0ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:45:10 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (4.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (7.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1
+  [1m[36mSQL (5.9ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.6ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )[0m
+Rendered workitems/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 104ms (Views: 16.9ms | ActiveRecord: 25.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 19:45:37 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 54ms (Views: 24.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 19:47:30 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (3.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 61ms (Views: 25.2ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Tue Jun 14 19:47:33 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (2.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 3
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 36ms (Views: 18.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at Tue Jun 14 19:47:35 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1
+  [1m[36mSQL (4.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 6 )[0m
+Rendered users/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 122ms (Views: 23.1ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:48:03 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (5.4ms)[0m  describe `team_user`
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (8.3ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 80ms (Views: 29.7ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:48:05 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mSQL (3.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+Rendered workitems/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 79ms (Views: 16.5ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Tue Jun 14 19:48:47 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` LIMIT 3 OFFSET 3[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM `user`
+Rendered users/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 33ms (Views: 16.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Tue Jun 14 19:50:52 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mSQL (20.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `user`.* FROM `user` LIMIT 3 OFFSET 3[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `user`
+Rendered users/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 48ms (Views: 13.7ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at Tue Jun 14 19:50:54 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.7ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 6 )
+Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 46ms (Views: 11.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at Tue Jun 14 19:51:03 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_user`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 6 )
+Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 39ms (Views: 12.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:57:18 -0700 2011
+  Processing by WorkitemsController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:57:26 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (289.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (51.3ms)[0m  SHOW TABLES
+  [1m[36mUser Load (27.9ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (28.8ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 588ms (Views: 78.5ms | ActiveRecord: 397.7ms)
+
+
+Started GET "/workitems/2" for 127.0.0.1 at Tue Jun 14 19:57:32 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (43.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (19.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (2.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (71.9ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (18.9ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 2 )
+Rendered workitems/show.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 503ms (Views: 29.3ms | ActiveRecord: 159.2ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 19:58:03 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (95.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem`
+Rendered workitems/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 188ms (Views: 34.9ms | ActiveRecord: 97.7ms)
+
+
+Started GET "/table1s" for 127.0.0.1 at Tue Jun 14 19:58:22 -0700 2011
+
+ActionController::RoutingError (No route matches "/table1s"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 20:00:43 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (5.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (29.9ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (3.3ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 120ms (Views: 41.3ms | ActiveRecord: 39.5ms)
+
+
+Started GET "/users/1/statistics" for 127.0.0.1 at Tue Jun 14 20:00:47 -0700 2011
+  Processing by UsersController#statistics as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (14.0ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`id` = 1 LIMIT 1
+Rendered users/statistics.html.erb within layouts/application (75.2ms)
+Completed 200 OK in 147ms (Views: 106.2ms | ActiveRecord: 16.4ms)
+
+
+Started POST "/users/1/statistics?method=POST" for 127.0.0.1 at Tue Jun 14 20:00:53 -0700 2011
+  Processing by UsersController#statistics as HTML
+  Parameters: {"commit"=>"Start Calculate", "stat_date"=>{"start(1i)"=>"2011", "start(2i)"=>"5", "start(3i)"=>"15", "end(1i)"=>"2011", "end(2i)"=>"6", "end(3i)"=>"15"}, "method"=>"POST", "authenticity_token"=>"Aa1Rn2R8BhckWiM9588g3jldCXc5jWf4uvOvGszKMI8=", "utf8"=>"✓", "id"=>"1"}
+  [1m[36mSQL (2.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mReport Load (176.6ms)[0m  [1mSELECT sum(hours) as hours, task.name as task_name, workitem.name as workitem_name FROM `report` INNER JOIN `user` ON `user`.`id` = `report`.`user_id` INNER JOIN `task` ON `task`.`id` = `report`.`task_id` INNER JOIN `workitem` ON `workitem`.`id` = `report`.`workitem_id` WHERE `report`.`user_id` = 1 AND (`report`.`date` BETWEEN '2011-05-15' AND '2011-06-15') GROUP BY task_id, workitem_id, task_name, workitem_name ORDER BY task_id, workitem_id[0m
+Rendered users/statistics.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 361ms (Views: 14.2ms | ActiveRecord: 184.3ms)
+
+
+Started GET "/users/2/statistics" for 127.0.0.1 at Tue Jun 14 20:00:58 -0700 2011
+  Processing by UsersController#statistics as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (5.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`id` = 2 LIMIT 1
+Rendered users/statistics.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 66ms (Views: 30.5ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/users/2/statistics?method=POST" for 127.0.0.1 at Tue Jun 14 20:01:03 -0700 2011
+  Processing by UsersController#statistics as HTML
+  Parameters: {"commit"=>"Start Calculate", "stat_date"=>{"start(1i)"=>"2011", "start(2i)"=>"5", "start(3i)"=>"15", "end(1i)"=>"2011", "end(2i)"=>"6", "end(3i)"=>"15"}, "method"=>"POST", "authenticity_token"=>"Aa1Rn2R8BhckWiM9588g3jldCXc5jWf4uvOvGszKMI8=", "utf8"=>"✓", "id"=>"2"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (3.7ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (4.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (4.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mReport Load (53.1ms)[0m  [1mSELECT sum(hours) as hours, task.name as task_name, workitem.name as workitem_name FROM `report` INNER JOIN `user` ON `user`.`id` = `report`.`user_id` INNER JOIN `task` ON `task`.`id` = `report`.`task_id` INNER JOIN `workitem` ON `workitem`.`id` = `report`.`workitem_id` WHERE `report`.`user_id` = 2 AND (`report`.`date` BETWEEN '2011-05-15' AND '2011-06-15') GROUP BY task_id, workitem_id, task_name, workitem_name ORDER BY task_id, workitem_id[0m
+Rendered users/statistics.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 234ms (Views: 65.5ms | ActiveRecord: 71.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 20:01:45 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (20.4ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (2.0ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 108ms (Views: 55.8ms | ActiveRecord: 25.6ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at Tue Jun 14 20:01:53 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (12.7ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )[0m
+  [1m[35mTeam Load (31.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )
+Rendered projects/show.html.erb within layouts/application (58.2ms)
+Completed 200 OK in 120ms (Views: 20.5ms | ActiveRecord: 55.0ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Tue Jun 14 20:01:56 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `team`.* FROM `team`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 1 AND (`task_workitem`.task_id = 1 ) LIMIT 1[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 2 AND (`task_workitem`.task_id = 1 ) LIMIT 1
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 1 AND (`team_task`.task_id = 1 ) LIMIT 1[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 2 AND (`team_task`.task_id = 1 ) LIMIT 1
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 3 AND (`team_task`.task_id = 1 ) LIMIT 1[0m
+Rendered projects/_form.html.erb (20.7ms)
+Rendered projects/edit.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 168ms (Views: 30.1ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at Tue Jun 14 20:03:26 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+Rendered projects/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 75ms (Views: 16.7ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 20:03:30 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (2.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (5.2ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.8ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 154ms (Views: 25.0ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 20:20:48 -0700 2011
+  Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 8ms
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:20:49 -0700 2011
+  Processing by TeamsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:20:54 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (423.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (12.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered teams/index.html.erb within layouts/application (98.9ms)
+Completed 200 OK in 898ms (Views: 191.1ms | ActiveRecord: 438.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 20:20:58 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (9.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (2.3ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 114ms (Views: 66.9ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Jun 14 20:21:10 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (2.3ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 0
+  [1m[36mSQL (6.1ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 56ms (Views: 25.9ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Tue Jun 14 20:21:14 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (4.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` LIMIT 3 OFFSET 3
+  [1m[36mSQL (3.6ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 105ms (Views: 31.7ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at Tue Jun 14 20:21:18 -0700 2011
+  Processing by TeamsController#new as HTML
+  [1m[35mSQL (2.4ms)[0m  describe `team_user`
+  [1m[36mUser Load (23.2ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (2.7ms)[0m  describe `team_user`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mUser Load (85.0ms)[0m  SELECT `user`.* FROM `user`
+  [1m[36mSQL (3.1ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered teams/_form.html.erb (115.0ms)
+Rendered teams/new.html.erb within layouts/application (138.1ms)
+Completed 200 OK in 399ms (Views: 165.9ms | ActiveRecord: 119.5ms)
+
+
+Started POST "/teams" for 127.0.0.1 at Tue Jun 14 20:21:28 -0700 2011
+  Processing by TeamsController#create as HTML
+  Parameters: {"commit"=>"Create Team", "selected_team_users"=>["6"], "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "team"=>{"name"=>"team4"}}
+  [1m[35mSQL (1.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  describe `team`
+  [1m[36mAREL (44.5ms)[0m  [1mINSERT INTO `team` (`updated_at`, `created_at`, `name`) VALUES ('2011-06-15 03:21:28', '2011-06-15 03:21:28', 'team4')[0m
+  [1m[35mSQL (51.6ms)[0m  INSERT INTO `team_user` (`team_id`, `user_id`) VALUES (4, 6)
+  [1m[36mSQL (41.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/teams/4
+Completed 302 Found in 246ms
+
+
+Started GET "/teams/4" for 127.0.0.1 at Tue Jun 14 20:21:28 -0700 2011
+  Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (45.1ms)[0m  SELECT `team`.* FROM `team` WHERE `team`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.9ms)[0m  describe `team_task`
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 4 )[0m
+  [1m[35mProject Load (11.0ms)[0m  SELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 4 )
+Rendered teams/show.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 121ms (Views: 18.3ms | ActiveRecord: 65.6ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:21:30 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mTeam Load (1.6ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered teams/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 171ms (Views: 22.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/teams/4" for 127.0.0.1 at Tue Jun 14 20:21:38 -0700 2011
+  Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (4.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `team`.* FROM `team` WHERE `team`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 4 )[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 4 )
+Rendered teams/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 79ms (Views: 12.2ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/teams/4" for 127.0.0.1 at Tue Jun 14 20:21:42 -0700 2011
+  Processing by TeamsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "id"=>"4"}
+  [1m[36mSQL (7.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (6.9ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (12.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (2.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `team`.* FROM `team` WHERE `team`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (3.7ms)[0m  BEGIN
+  [1m[36mAREL (19.2ms)[0m  [1mDELETE FROM `team` WHERE `team`.`id` = 4[0m
+  [1m[35mSQL (2.9ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 4 )[0m
+  [1m[35mSQL (1.2ms)[0m  BEGIN
+  [1m[36mAREL (25.1ms)[0m  [1mDELETE FROM `team_user` WHERE `team_user`.`team_id` = 4 AND `team_user`.`user_id` IN (6)[0m
+  [1m[35mSQL (0.7ms)[0m  COMMIT
+  [1m[36mSQL (7.2ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (6.1ms)[0m  describe `team_task`
+  [1m[36mProject Load (3.0ms)[0m  [1mSELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 4 )[0m
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 161ms
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:21:42 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.* FROM `team`
+Rendered teams/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 101ms (Views: 18.3ms | ActiveRecord: 155.8ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Tue Jun 14 20:21:45 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `user`.* FROM `user` LIMIT 3 OFFSET 3[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM `user`
+Rendered users/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 31ms (Views: 13.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at Tue Jun 14 20:21:48 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (8.6ms)[0m  describe `team_user`
+  [1m[36mSQL (5.0ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (4.2ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 6 )
+Rendered users/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 99ms (Views: 31.5ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at Tue Jun 14 20:21:52 -0700 2011
+  Processing by TeamsController#new as HTML
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (6.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (4.1ms)[0m  describe `team_task`
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT `user`.* FROM `user`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (3.2ms)[0m  SELECT `task`.* FROM `task`
+Rendered teams/_form.html.erb (14.7ms)
+Rendered teams/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 98ms (Views: 28.0ms | ActiveRecord: 22.2ms)
+
+
+Started POST "/teams" for 127.0.0.1 at Tue Jun 14 20:21:57 -0700 2011
+  Processing by TeamsController#create as HTML
+  Parameters: {"commit"=>"Create Team", "selected_team_users"=>["6"], "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "team"=>{"name"=>"tesm4"}}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (4.4ms)[0m  describe `team_task`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (4.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team`[0m
+  [1m[35mAREL (3.7ms)[0m  INSERT INTO `team` (`created_at`, `updated_at`, `name`) VALUES ('2011-06-15 03:21:57', '2011-06-15 03:21:57', 'tesm4')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `team_user` (`team_id`, `user_id`) VALUES (5, 6)[0m
+  [1m[35mSQL (6.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/teams/5
+Completed 302 Found in 101ms
+
+
+Started GET "/teams/5" for 127.0.0.1 at Tue Jun 14 20:21:57 -0700 2011
+  Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (1.4ms)[0m  [1mSELECT `team`.* FROM `team` WHERE `team`.`id` = 5 LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 5 )
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 5 )[0m
+Rendered teams/show.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 135ms (Views: 17.7ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:21:59 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (6.5ms)[0m  describe `team_user`
+  [1m[36mSQL (5.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (5.7ms)[0m  SELECT `team`.* FROM `team`
+Rendered teams/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 74ms (Views: 29.7ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at Tue Jun 14 20:22:02 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 6 )
+Rendered users/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 45ms (Views: 16.5ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/teams/5" for 127.0.0.1 at Tue Jun 14 20:22:07 -0700 2011
+  Processing by TeamsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "id"=>"5"}
+  [1m[36mSQL (7.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (4.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (10.2ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `team`.* FROM `team` WHERE `team`.`id` = 5 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.6ms)[0m  [1mDELETE FROM `team` WHERE `team`.`id` = 5[0m
+  [1m[35mSQL (31.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 5 )[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (0.5ms)[0m  [1mDELETE FROM `team_user` WHERE `team_user`.`team_id` = 5 AND `team_user`.`user_id` IN (6)[0m
+  [1m[35mSQL (0.8ms)[0m  COMMIT
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 5 )[0m
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 128ms
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:22:08 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.* FROM `team`
+Rendered teams/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 39ms (Views: 16.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at Tue Jun 14 20:22:11 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_user` ON `team`.id = `team_user`.team_id WHERE (`team_user`.user_id = 6 )
+Rendered users/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 44ms (Views: 12.4ms | ActiveRecord: 132.7ms)
+
+
+Started GET "/users/4/statistics" for 127.0.0.1 at Tue Jun 14 20:30:23 -0700 2011
+  Processing by UsersController#statistics as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (49.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mUser Load (8.0ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 4 LIMIT 1[0m
+Rendered users/statistics.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 96ms (Views: 24.5ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 20:33:24 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (47.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 160ms (Views: 52.9ms | ActiveRecord: 51.1ms)
+
+
+Started GET "/teams" for 127.0.0.1 at Tue Jun 14 20:33:26 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered teams/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 231ms (Views: 196.2ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 20:33:29 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (2.2ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (44.2ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 149ms (Views: 44.4ms | ActiveRecord: 55.5ms)
+
+
+Started GET "/projects/4/edit" for 127.0.0.1 at Tue Jun 14 20:33:38 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (3.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 1 AND (`task_workitem`.task_id = 4 ) LIMIT 1
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.`id` FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE `workitem`.`id` = 2 AND (`task_workitem`.task_id = 4 ) LIMIT 1[0m
+  [1m[35mTeam Load (46.8ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 1 AND (`team_task`.task_id = 4 ) LIMIT 1
+  [1m[36mTeam Load (10.4ms)[0m  [1mSELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 2 AND (`team_task`.task_id = 4 ) LIMIT 1[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.`id` FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE `team`.`id` = 3 AND (`team_task`.task_id = 4 ) LIMIT 1
+Rendered projects/_form.html.erb (136.9ms)
+Rendered projects/edit.html.erb within layouts/application (143.3ms)
+Completed 200 OK in 354ms (Views: 143.6ms | ActiveRecord: 71.3ms)
+
+
+Started POST "/projects/4" for 127.0.0.1 at Tue Jun 14 20:33:45 -0700 2011
+  Processing by ProjectsController#update as HTML
+  Parameters: {"commit"=>"Update Project", "selected_project_teams"=>["3"], "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "selected_project_workitems"=>["1"], "project"=>{"name"=>"project4"}, "id"=>"4"}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 1 LIMIT 1[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mSQL (15.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT `team`.* FROM `team` WHERE `team`.`id` = 3 LIMIT 1[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+  [1m[36mSQL (0.7ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (51.1ms)[0m  DELETE FROM `team_task` WHERE `team_task`.`task_id` = 4 AND `team_task`.`team_id` IN (2)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `team_task` (`team_id`, `task_id`) VALUES (3, 4)[0m
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 143ms
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 20:33:45 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+Rendered projects/show.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 87ms (Views: 38.3ms | ActiveRecord: 92.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 20:33:49 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (5.1ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered projects/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 79ms (Views: 30.0ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at Tue Jun 14 20:36:15 -0700 2011
+  Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (2.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `team`.* FROM `team` WHERE `team`.`id` = 3 LIMIT 1
+  [1m[36mSQL (9.1ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.7ms)[0m  describe `team_task`
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT * FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE (`team_user`.team_id = 3 )[0m
+  [1m[35mProject Load (2.9ms)[0m  SELECT * FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE (`team_task`.team_id = 3 )
+Rendered teams/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 129ms (Views: 35.5ms | ActiveRecord: 25.7ms)
+
+
+Started GET "/teams/3/edit" for 127.0.0.1 at Tue Jun 14 20:36:22 -0700 2011
+  Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (2.0ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `team`.* FROM `team` WHERE `team`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user`
+  [1m[36mSQL (6.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (4.1ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+  [1m[35mUser Load (19.8ms)[0m  SELECT `user`.`id` FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE `user`.`id` = 1 AND (`team_user`.team_id = 3 ) LIMIT 1
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `user`.`id` FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE `user`.`id` = 2 AND (`team_user`.team_id = 3 ) LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.`id` FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE `user`.`id` = 3 AND (`team_user`.team_id = 3 ) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `user`.`id` FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE `user`.`id` = 4 AND (`team_user`.team_id = 3 ) LIMIT 1[0m
+  [1m[35mUser Load (1.6ms)[0m  SELECT `user`.`id` FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE `user`.`id` = 5 AND (`team_user`.team_id = 3 ) LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `user`.`id` FROM `user` INNER JOIN `team_user` ON `user`.id = `team_user`.user_id WHERE `user`.`id` = 6 AND (`team_user`.team_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE `task`.`id` = 1 AND (`team_task`.team_id = 3 ) LIMIT 1
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE `task`.`id` = 2 AND (`team_task`.team_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE `task`.`id` = 3 AND (`team_task`.team_id = 3 ) LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `team_task` ON `task`.id = `team_task`.task_id WHERE `task`.`id` = 4 AND (`team_task`.team_id = 3 ) LIMIT 1[0m
+Rendered teams/_form.html.erb (135.6ms)
+Rendered teams/edit.html.erb within layouts/application (142.4ms)
+Completed 200 OK in 243ms (Views: 142.5ms | ActiveRecord: 46.0ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 20:36:28 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (7.0ms)[0m  describe `task_workitem`
+  [1m[36mSQL (5.1ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (4.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 138ms (Views: 31.8ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:45:15 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (467.3ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (123.8ms)
+Completed 200 OK in 970ms (Views: 223.0ms | ActiveRecord: 470.1ms)
+
+
+Started GET "/workitems/new" for 127.0.0.1 at Tue Jun 14 20:45:20 -0700 2011
+  Processing by WorkitemsController#new as HTML
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered workitems/_form.html.erb (9.5ms)
+Rendered workitems/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 917ms (Views: 77.9ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/workitems" for 127.0.0.1 at Tue Jun 14 20:45:30 -0700 2011
+  Processing by WorkitemsController#create as HTML
+  Parameters: {"commit"=>"Create Workitem", "workitem"=>{"name"=>"workitem3", "id"=>""}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "selected_workitem_projects"=>["3"]}
+  [1m[35mSQL (4.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.6ms)[0m  describe `task_workitem`
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `workitem`[0m
+  [1m[35mAREL (142.9ms)[0m  INSERT INTO `workitem` (`name`, `descr`, `created_at`, `updated_at`) VALUES ('workitem3', NULL, '2011-06-15 03:45:30', '2011-06-15 03:45:30')
+  [1m[36mSQL (26.1ms)[0m  [1mINSERT INTO `task_workitem` (`task_id`, `workitem_id`) VALUES (3, 3)[0m
+  [1m[35mSQL (55.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/3
+Completed 302 Found in 315ms
+
+
+Started GET "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:45:31 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (59.5ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (29.7ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+Rendered workitems/show.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 149ms (Views: 22.8ms | ActiveRecord: 335.7ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:45:36 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (5.4ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 67ms (Views: 27.1ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:45:39 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (6.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (11.8ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (4.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )
+Rendered workitems/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 113ms (Views: 24.2ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/workitems/3/edit" for 127.0.0.1 at Tue Jun 14 20:45:41 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (2.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (11.6ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+  [1m[35mProject Load (15.4ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 3 ) LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 3 ) LIMIT 1
+  [1m[36mProject Load (3.3ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 3 ) LIMIT 1[0m
+Rendered workitems/_form.html.erb (51.1ms)
+Rendered workitems/edit.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 143ms (Views: 65.5ms | ActiveRecord: 38.7ms)
+
+
+Started POST "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:47:09 -0700 2011
+  Processing by WorkitemsController#update as HTML
+  Parameters: {"commit"=>"Update Workitem", "workitem"=>{"name"=>"workitem3", "id"=>"3"}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "id"=>"3", "selected_workitem_projects"=>["3"]}
+  [1m[35mSQL (1.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.3ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 3 LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (2.2ms)[0m  [1mDELETE FROM `task_workitem` WHERE `task_workitem`.`task_id` = 3 AND `task_workitem`.`workitem_id` IN (2)[0m
+  [1m[35mSQL (24.7ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mSQL (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/3
+Completed 302 Found in 92ms
+
+
+Started GET "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:47:10 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (1.9ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+Rendered workitems/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 53ms (Views: 14.0ms | ActiveRecord: 47.2ms)
+
+
+Started GET "/workitems/3/edit" for 127.0.0.1 at Tue Jun 14 20:47:12 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (2.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (5.1ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (6.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task`
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 3 ) LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 3 ) LIMIT 1
+Rendered workitems/_form.html.erb (16.7ms)
+Rendered workitems/edit.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 176ms (Views: 110.7ms | ActiveRecord: 18.9ms)
+
+
+Started POST "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:47:14 -0700 2011
+  Processing by WorkitemsController#update as HTML
+  Parameters: {"commit"=>"Update Workitem", "workitem"=>{"name"=>"workitem3", "id"=>"3"}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "id"=>"3", "selected_workitem_projects"=>["4"]}
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (7.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (5.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.7ms)[0m  DELETE FROM `task_workitem` WHERE `task_workitem`.`task_id` = 3 AND `task_workitem`.`workitem_id` IN (3)
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `task_workitem` (`workitem_id`, `task_id`) VALUES (4, 3)[0m
+  [1m[35mSQL (6.5ms)[0m  COMMIT
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mSQL (3.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/3
+Completed 302 Found in 92ms
+
+
+Started GET "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:47:14 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+Rendered workitems/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 53ms (Views: 14.0ms | ActiveRecord: 37.7ms)
+
+
+Started GET "/workitems/3/edit" for 127.0.0.1 at Tue Jun 14 20:47:15 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (3.0ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (1.2ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.* FROM `task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 3 ) LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 3 ) LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 3 ) LIMIT 1
+Rendered workitems/_form.html.erb (15.1ms)
+Rendered workitems/edit.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 170ms (Views: 25.7ms | ActiveRecord: 12.2ms)
+
+
+Started POST "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:47:17 -0700 2011
+  Processing by WorkitemsController#update as HTML
+  Parameters: {"commit"=>"Update Workitem", "workitem"=>{"name"=>"workitem3", "id"=>"3"}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "id"=>"3", "selected_workitem_projects"=>["3"]}
+  [1m[36mSQL (4.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (2.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 3 LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM `task_workitem` WHERE `task_workitem`.`task_id` = 3 AND `task_workitem`.`workitem_id` IN (4)
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `task_workitem` (`task_id`, `workitem_id`) VALUES (3, 3)[0m
+  [1m[35mSQL (30.0ms)[0m  COMMIT
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/3
+Completed 302 Found in 120ms
+
+
+Started GET "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:47:17 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )[0m
+Rendered workitems/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 52ms (Views: 14.1ms | ActiveRecord: 51.0ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:47:25 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (5.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.7ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 73ms (Views: 30.4ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/workitems/new" for 127.0.0.1 at Tue Jun 14 20:47:31 -0700 2011
+  Processing by WorkitemsController#new as HTML
+  [1m[35mSQL (2.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered workitems/_form.html.erb (11.4ms)
+Rendered workitems/new.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 75ms (Views: 41.6ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/workitems" for 127.0.0.1 at Tue Jun 14 20:47:46 -0700 2011
+  Processing by WorkitemsController#create as HTML
+  Parameters: {"commit"=>"Create Workitem", "workitem"=>{"name"=>"workitem4", "id"=>""}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "selected_workitem_projects"=>["4"]}
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (3.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `workitem`[0m
+  [1m[35mAREL (3.4ms)[0m  INSERT INTO `workitem` (`name`, `created_at`, `updated_at`, `descr`) VALUES ('workitem4', '2011-06-15 03:47:46', '2011-06-15 03:47:46', NULL)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `task_workitem` (`task_id`, `workitem_id`) VALUES (4, 4)[0m
+  [1m[35mSQL (15.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/4
+Completed 302 Found in 98ms
+
+
+Started GET "/workitems/4" for 127.0.0.1 at Tue Jun 14 20:47:46 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+Rendered workitems/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 57ms (Views: 16.3ms | ActiveRecord: 38.2ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:49:27 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (2.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 57ms (Views: 33.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/workitems/new" for 127.0.0.1 at Tue Jun 14 20:49:28 -0700 2011
+  Processing by WorkitemsController#new as HTML
+  [1m[35mSQL (10.0ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered workitems/_form.html.erb (7.8ms)
+Rendered workitems/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 59ms (Views: 18.9ms | ActiveRecord: 15.0ms)
+
+
+Started POST "/workitems" for 127.0.0.1 at Tue Jun 14 20:49:41 -0700 2011
+  Processing by WorkitemsController#create as HTML
+  Parameters: {"commit"=>"Create Workitem", "workitem"=>{"name"=>"workitem5", "id"=>""}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "selected_workitem_projects"=>["4"]}
+  [1m[35mSQL (2.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  describe `task_workitem`
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `workitem`[0m
+  [1m[35mAREL (0.7ms)[0m  INSERT INTO `workitem` (`created_at`, `name`, `descr`, `updated_at`) VALUES ('2011-06-15 03:49:41', 'workitem5', NULL, '2011-06-15 03:49:41')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `task_workitem` (`workitem_id`, `task_id`) VALUES (4, 5)[0m
+  [1m[35mSQL (2.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/5
+Completed 302 Found in 62ms
+
+
+Started GET "/workitems/5" for 127.0.0.1 at Tue Jun 14 20:49:41 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSQL (3.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 5 LIMIT 1
+  [1m[36mSQL (3.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 5 )[0m
+Rendered workitems/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 55ms (Views: 13.8ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:50:11 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (37.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (77.0ms)[0m  SHOW TABLES
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.8ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 201ms (Views: 37.0ms | ActiveRecord: 119.7ms)
+
+
+Started GET "/workitems/new" for 127.0.0.1 at Tue Jun 14 20:50:13 -0700 2011
+  Processing by WorkitemsController#new as HTML
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (5.2ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered workitems/_form.html.erb (63.1ms)
+Rendered workitems/new.html.erb within layouts/application (78.2ms)
+Completed 200 OK in 138ms (Views: 87.8ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/workitems" for 127.0.0.1 at Tue Jun 14 20:50:27 -0700 2011
+  Processing by WorkitemsController#create as HTML
+  Parameters: {"commit"=>"Create Workitem", "workitem"=>{"name"=>"workitem6", "id"=>""}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "selected_workitem_projects"=>["3"]}
+  [1m[35mSQL (14.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (4.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `workitem`[0m
+  [1m[35mAREL (0.8ms)[0m  INSERT INTO `workitem` (`created_at`, `updated_at`, `descr`, `name`) VALUES ('2011-06-15 03:50:27', '2011-06-15 03:50:27', NULL, 'workitem6')
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `task_workitem` (`task_id`, `workitem_id`) VALUES (6, 3)[0m
+  [1m[35mSQL (3.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/workitems/6
+Completed 302 Found in 86ms
+
+
+Started GET "/workitems/6" for 127.0.0.1 at Tue Jun 14 20:50:27 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 6 LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (27.3ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 6 )[0m
+Rendered workitems/show.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 78ms (Views: 14.6ms | ActiveRecord: 66.0ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:50:45 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (2.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (108.4ms)
+Completed 200 OK in 141ms (Views: 114.7ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/workitems/6" for 127.0.0.1 at Tue Jun 14 20:50:56 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (4.1ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 6 )
+Rendered workitems/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 94ms (Views: 21.5ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/workitems/6/edit" for 127.0.0.1 at Tue Jun 14 20:50:58 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (4.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (4.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (3.2ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 6 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_task`
+  [1m[36mProject Load (3.1ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 6 ) LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 6 ) LIMIT 1[0m
+  [1m[35mProject Load (1.7ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 6 ) LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 6 ) LIMIT 1[0m
+Rendered workitems/_form.html.erb (17.6ms)
+Rendered workitems/edit.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 102ms (Views: 28.5ms | ActiveRecord: 21.8ms)
+
+
+Started POST "/workitems/6" for 127.0.0.1 at Tue Jun 14 20:51:00 -0700 2011
+  Processing by WorkitemsController#update as HTML
+  Parameters: {"commit"=>"Update Workitem", "workitem"=>{"name"=>"workitem6", "id"=>"6"}, "authenticity_token"=>"tlI5Ew5tTQa9hoGuk5tHz59RgOQp3BtczuqsqXDBeb0=", "utf8"=>"✓", "id"=>"6", "selected_workitem_projects"=>["4"]}
+  [1m[35mSQL (1.8ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 6 )[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (3.8ms)[0m  [1mDELETE FROM `task_workitem` WHERE `task_workitem`.`task_id` = 6 AND `task_workitem`.`workitem_id` IN (3)[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `task_workitem` (`workitem_id`, `task_id`) VALUES (4, 6)
+  [1m[36mSQL (18.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/workitems/6
+Completed 302 Found in 223ms
+
+
+Started GET "/workitems/6" for 127.0.0.1 at Tue Jun 14 20:51:00 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mSQL (2.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 6 )
+Rendered workitems/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 52ms (Views: 13.9ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/workitems/6/edit" for 127.0.0.1 at Tue Jun 14 20:51:02 -0700 2011
+  Processing by WorkitemsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 6 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 1 AND (`task_workitem`.task_id = 6 ) LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 2 AND (`task_workitem`.task_id = 6 ) LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 3 AND (`task_workitem`.task_id = 6 ) LIMIT 1
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT `task`.`id` FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE `task`.`id` = 4 AND (`task_workitem`.task_id = 6 ) LIMIT 1[0m
+Rendered workitems/_form.html.erb (13.9ms)
+Rendered workitems/edit.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 64ms (Views: 22.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/workitems/3" for 127.0.0.1 at Tue Jun 14 20:51:08 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mSQL (5.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (2.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.8ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.8ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 3 )
+Rendered workitems/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 103ms (Views: 14.2ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 20:51:11 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (7.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (2.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered projects/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 96ms (Views: 37.2ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 20:51:16 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (3.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (3.8ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.8ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )
+  [1m[36mTeam Load (0.8ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )[0m
+Rendered projects/show.html.erb within layouts/application (64.6ms)
+Completed 200 OK in 135ms (Views: 69.7ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:51:22 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[35mSQL (6.1ms)[0m  describe `team_user`
+  [1m[36mUser Load (4.1ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (9.0ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (5.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+Rendered workitems/index.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 98ms (Views: 37.8ms | ActiveRecord: 24.9ms)
+
+
+Started GET "/workitems/1" for 127.0.0.1 at Tue Jun 14 20:51:24 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (6.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (2.4ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.6ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (7.1ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+Rendered workitems/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 93ms (Views: 14.4ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/workitems/4" for 127.0.0.1 at Tue Jun 14 20:51:25 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (2.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 4 LIMIT 1
+  [1m[36mSQL (3.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (3.8ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+Rendered workitems/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 172ms (Views: 17.6ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Tue Jun 14 20:55:10 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (3.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (7.1ms)[0m  describe `task_workitem`
+  [1m[36mSQL (6.2ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 88ms (Views: 21.1ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/workitems" for 127.0.0.1 at Tue Jun 14 20:55:11 -0700 2011
+  Processing by WorkitemsController#index as HTML
+  [1m[36mSQL (4.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (2.1ms)[0m  SELECT `workitem`.* FROM `workitem`
+Rendered workitems/index.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 96ms (Views: 47.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 20:55:13 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (2.2ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+Rendered projects/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 127ms (Views: 20.4ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at Tue Jun 14 20:55:18 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 4 )[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 4 )
+Rendered projects/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 69ms (Views: 18.6ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/workitems/1" for 127.0.0.1 at Tue Jun 14 20:55:25 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.task_id WHERE (`task_workitem`.workitem_id = 1 )[0m
+Rendered workitems/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 106ms (Views: 15.2ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/workitems/4" for 127.0.0.1 at Tue Jun 14 20:55:26 -0700 2011
+  Processing by WorkitemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mSQL (3.3ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'user1' LIMIT 1[0m
+  [1m[35mSQL (4.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem` WHERE `workitem`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mSQL (5.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT * FROM `task` INNER JOIN `task_workitem` ON `task`.id = `task_workitem`.task_id WHERE (`task_workitem`.workitem_id = 4 )
+Rendered workitems/show.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 107ms (Views: 29.1ms | ActiveRecord: 16.1ms)
