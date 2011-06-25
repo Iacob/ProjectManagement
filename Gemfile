@@ -1,17 +1,22 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.9'
 
-gem 'mysql2', '< 0.3'
-
-gem 'activesupport', '3.0.5'
-
-gem 'will_paginate', '3.0.pre2'
+gem 'rake', '~>0.8.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
+
+# JRuby mysql jdbc library
+gem 'jdbc-mysql'
+# JRuby on rails jdbc adapter
+gem 'activerecord-jdbc-adapter'
+# JRuby on rails jdbc mysql adapter
+gem 'activerecord-jdbcmysql-adapter'
+
+gem 'will_paginate', '3.0.pre2'
 
 # Use unicorn as the web server
 # gem 'unicorn'
