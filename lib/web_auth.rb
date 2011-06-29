@@ -64,6 +64,7 @@ module ModuleDbAuthenticate
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
+      @current_user = username
       next web_auth(username, password)
     end
   end
@@ -74,6 +75,7 @@ module ModuleDbAuthenticateAdmin
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
+      @current_user = username
       next web_auth_role(username, password, 'admin')
     end
   end
