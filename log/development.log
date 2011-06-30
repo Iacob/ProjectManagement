@@ -18283,3 +18283,71 @@ Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `tea
   [1m[36mSQL (0.9ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
 Rendered users/index.html.erb within layouts/application (29.1ms)
 Completed 200 OK in 106ms (Views: 42.9ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Jun 30 21:27:45 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (1.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` ORDER BY login ASC LIMIT 10 OFFSET 0
+Rendered users/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 46ms (Views: 25.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Jun 30 21:28:25 +0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `user`.* FROM `user` ORDER BY login ASC LIMIT 10 OFFSET 0[0m
+Rendered users/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 45ms (Views: 28.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/holidays" for 127.0.0.1 at Thu Jun 30 21:30:29 +0800 2011
+  Processing by HolidaysController#index as HTML
+  [1m[35mSQL (1.2ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mHoliday Load (0.2ms)[0m  SELECT `holiday`.* FROM `holiday`
+Rendered holidays/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 47ms (Views: 25.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/w" for 127.0.0.1 at Thu Jun 30 21:51:51 +0800 2011
+
+ActionController::RoutingError (No route matches "/w"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.1ms)
+
+
+Started GET "/l" for 127.0.0.1 at Thu Jun 30 21:51:58 +0800 2011
+
+ActionController::RoutingError (uninitialized constant WorklogController):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/l" for 127.0.0.1 at Thu Jun 30 21:52:16 +0800 2011
+
+ActionController::RoutingError (No route matches "/l"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/l" for 127.0.0.1 at Thu Jun 30 21:52:51 +0800 2011
+
+ActionController::RoutingError (No route matches "/l"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/worklog" for 127.0.0.1 at Thu Jun 30 21:52:56 +0800 2011
+
+ActionController::RoutingError (uninitialized constant WorklogController):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.7ms)
