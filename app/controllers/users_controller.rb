@@ -135,7 +135,7 @@ class UsersController < ApplicationController
     @start_date
     @end_date
     @users
-    @reports
+    # @reports
     @report_weeks = {}
 
     _stat_date = params[:stat_date]
@@ -143,12 +143,13 @@ class UsersController < ApplicationController
       @start_date = Date.new(_stat_date["start(1i)"].to_i, _stat_date["start(2i)"].to_i, _stat_date["start(3i)"].to_i)
       @end_date = Date.new(_stat_date["end(1i)"].to_i, _stat_date["end(2i)"].to_i, _stat_date["end(3i)"].to_i)
 
-      _query = get_report_query(@user.id, @start_date, @end_date)
-      @reports = _query.all
+      #_query = get_report_query(@user.id, @start_date, @end_date)
+      #@reports = _query.all
 
-      
+      # Split date period to weeks.
       _weeks = split_weeks(@start_date, @end_date)
       _weeks.each do |period_start|
+        # End of the week.
         _period_end = period_start.next_week.yesterday
         if _period_end > @end_date
           _query = get_report_query(@user.id, period_start, @end_date)

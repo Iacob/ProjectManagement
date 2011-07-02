@@ -28,7 +28,7 @@
 
 <br />
 
-<% unless @reports.nil? %>
+<% unless @report_weeks.nil? %>
 <table>
   <tr>
     <th><div style="margin-right: 10px">Project name</div></th>
@@ -36,12 +36,20 @@
     <th>Hours</th>
   </tr>
 
-<% @reports.each do |report| %>
+<% @report_weeks.keys.sort.each do |week_start| %>
   <tr>
-    <td><%= report.task_name %></td>
-    <td><%= report.workitem_name %></td>
-    <td><%= report.hours %></td>
+    <td colspan="3">
+      <i><%= week_start %></i>
+      <div style="max-height:1;min-width:100%;border:1px solid black;"></div>
+    </td>
   </tr>
+  <% @report_weeks[week_start].each do |report| %>
+    <tr>
+      <td><%= report.task_name %></td>
+      <td><%= report.workitem_name %></td>
+      <td><%= report.hours %></td>
+    </tr>
+<% end %>
 <% end %>
 </table>
 <br />
