@@ -14,9 +14,9 @@
   <tr>
     <td><%= workitem.id %></td>
     <td><%= workitem.name %></td>
-    <td><%= link_to 'Show', workitem %></td>
-    <td><%= link_to 'Edit', edit_workitem_path(workitem) %></td>
-    <td><%= link_to 'Destroy', workitem, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', workitem %></td>
+    <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_workitem_path(workitem) %></td>
+    <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', workitem, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

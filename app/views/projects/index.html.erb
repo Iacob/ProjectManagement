@@ -14,9 +14,9 @@
   <tr>
     <td><%= project.id %></td>
     <td><%= project.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', project %></td>
+    <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

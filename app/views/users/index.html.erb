@@ -15,10 +15,10 @@
   <tr>
     <td><%= user.id %></td>
     <td><%= user.login %></td>
-    <td><%= image_tag('icons/detail.png', :size => '20x20') %><%= link_to 'Show', user%></td>
-    <td><%= image_tag('icons/edit.png', :size => '20x20') %><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= image_tag('icons/delete.png', :size => '20x20') %><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= image_tag('icons/stats.png', :size => '20x20') %><%= link_to('Stats', "/users/#{user.id}/statistics") %></td>
+    <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', user %></td>
+    <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag('icons/stats.png', :class => :icon) %><%= link_to('Stats', "/users/#{user.id}/statistics") %></td>
   </tr>
 <% end %>
 </table>

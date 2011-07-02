@@ -14,9 +14,9 @@
   <tr>
     <td><%= holiday.holiday_date %></td>
     <td><%= holiday.descr %></td>
-    <td><%= link_to 'Show', holiday %></td>
-    <td><%= link_to 'Edit', edit_holiday_path(holiday) %></td>
-    <td><%= link_to 'Destroy', holiday, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', holiday %></td>
+    <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_holiday_path(holiday) %></td>
+    <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', holiday, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

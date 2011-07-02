@@ -1,4 +1,5 @@
 require 'web_auth'
+require 'common_utils'
 
 class UsersController < ApplicationController
 
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   def index
     # @users = User.all
     # @users = User.paginate :page => params[:page], :order => 'created_at DESC'
-    @users = User.paginate :page => params[:page], :order => 'login ASC', :per_page => 10
+    @users = User.paginate :page => params[:page], :order => 'login ASC', :per_page => 20
 
     respond_to do |format|
       format.html # index.html.erb
@@ -129,27 +130,53 @@ class UsersController < ApplicationController
   # GET /users/1/statistics
   # GET /users/1/statistics.xml
   def statistics
+
     @user = User.find(params[:id])
     @start_date
     @end_date
     @users
+    @reports
+    @report_weeks = {}
 
     _stat_date = params[:stat_date]
     unless _stat_date.nil?
       @start_date = Date.new(_stat_date["start(1i)"].to_i, _stat_date["start(2i)"].to_i, _stat_date["start(3i)"].to_i)
       @end_date = Date.new(_stat_date["end(1i)"].to_i, _stat_date["end(2i)"].to_i, _stat_date["end(3i)"].to_i)
 
-      @reports = Report.select("sum(hours) as hours, task.name as task_name, workitem.name as workitem_name") \
-        .joins(:user, :project, :workitem) \
-        .where("report.date" => @start_date..@end_date, "report.user_id" => @user.id)\
-        .group("task_id, workitem_id, task_name, workitem_name") \
-        .order("task_id, workitem_id") \
-        .all
+      _query = get_report_query(@user.id, @start_date, @end_date)
+      @reports = _query.all
+
+      
+      _weeks = split_weeks(@start_date, @end_date)
+      _weeks.each do |period_start|
+        _period_end = period_start.next_week.yesterday
+        if _period_end > @end_date
+          _query = get_report_query(@user.id, period_start, @end_date)
+          @report_weeks[period_start] = _query.all
+          break
+        else
+          _query = get_report_query(@user.id, period_start, _period_end)
+          @report_weeks[period_start] = _query.all
+        end
+      end
+      puts @report_weeks.inspect
+
     end
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
+  end
+
+
+private
+
+  def get_report_query(user_id, start_date, end_date)
+    Report.select("sum(hours) as hours, task.name as task_name, workitem.name as workitem_name") \
+      .joins(:user, :project, :workitem) \
+      .where("report.date" => start_date..end_date, "report.user_id" => user_id)\
+      .group("task_id, workitem_id, task_name, workitem_name") \
+      .order("task_id, workitem_id")
   end
 end

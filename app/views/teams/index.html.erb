@@ -14,9 +14,9 @@
   <tr>
     <!-- td><%= team.id %></td -->
     <td><%= team.name %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', team %></td>
+    <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_team_path(team) %></td>
+    <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
