@@ -8,6 +8,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @teams.each do |team| %>
@@ -17,6 +18,7 @@
     <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', team %></td>
     <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_team_path(team) %></td>
     <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', team, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= image_tag('icons/stats.png', :class => :icon) %><%= link_to('Stats', "/teams/#{team.id}/statistics") %></td>
   </tr>
 <% end %>
 </table>
