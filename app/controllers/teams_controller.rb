@@ -1,4 +1,5 @@
 require 'web_auth'
+require 'common_utils'
 
 class TeamsController < ApplicationController
 
@@ -112,5 +113,59 @@ class TeamsController < ApplicationController
       format.html { redirect_to(teams_url) }
       format.xml  { head :ok }
     end
+  end
+
+  # GET /teams/1/statistics
+  # GET /teams/1/statistics.xml
+  def statistics
+
+    @team = Team.find(params[:id])
+    @start_date
+    @end_date
+    @teams
+    @report_weeks = {}
+
+    _stat_date = params[:stat_date]
+    unless _stat_date.nil?
+      @start_date = Date.new(_stat_date["start(1i)"].to_i, _stat_date["start(2i)"].to_i, _stat_date["start(3i)"].to_i)
+      @end_date = Date.new(_stat_date["end(1i)"].to_i, _stat_date["end(2i)"].to_i, _stat_date["end(3i)"].to_i)
+
+      # Split date period to weeks.
+      _weeks = split_weeks(@start_date, @end_date)
+      _weeks.each do |period_start|
+        # End of the week.
+        _period_end = period_start.next_week.yesterday
+        if _period_end > @end_date
+          _query = get_report_query(@team.id, period_start, @end_date)
+          @report_weeks[period_start] = _query.all
+          break
+        else
+          _query = get_report_query(@team.id, period_start, _period_end)
+          @report_weeks[period_start] = _query.all
+        end
+      end
+      puts @report_weeks.inspect
+
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @teams }
+    end
+  end
+
+
+private
+
+  def get_report_query(team_id, start_date, end_date)
+    Report.select("sum(hours) as hours, task.name as task_name, workitem.name as workitem_name") \
+      .from("report, user, task, workitem") \
+      .where("report.date" => start_date..end_date) \
+      .where("report.user_id = user.id") \
+      .where("report.task_id = task.id") \
+      .where("report.workitem_id = workitem.id") \
+      .where("exists(select team_id from team_user where user_id=user.id and team_id=?)", team_id) \
+      .group("task_id, workitem_id, task_name, workitem_name") \
+      .order("task_id, workitem_id")
   end
 end
