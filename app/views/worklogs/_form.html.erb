@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :task_id %><br />
-    <%= f.text_field :task_id %>
+    <%= f.label :Project %><br />
+    <!-- %= f.text_field :task_id % -->
+    <%= collection_select(:task_id, nil, @user_tasks, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :workitem_id %><br />
-    <%= f.text_field :workitem_id %>
+    <%= collection_select(:workitem_id, nil, @user_workitems, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :hours %><br />

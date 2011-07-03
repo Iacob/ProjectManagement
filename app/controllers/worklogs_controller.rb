@@ -43,6 +43,9 @@ class WorklogsController < ApplicationController
     # Find login user.
     @user = User.find_by_login(@current_login)
 
+    @user_tasks = get_user_tasks(@user.id)
+    @user_workitems = get_user_workitems(@user.id)
+
     @worklog = Report.new
     @worklog.user_id = @user.id
 
@@ -56,6 +59,11 @@ class WorklogsController < ApplicationController
   def edit
     # Find login user.
     @user = User.find_by_login(@current_login)
+
+    @user_tasks = get_user_tasks(@user.id)
+    @user_workitems = get_user_workitems(@user.id)
+    puts @user_tasks.inspect
+    puts @user_workitems.inspect
 
     @worklog =Report.find_by_id_and_user_id(params[:id], @user.id)
   end
@@ -114,4 +122,15 @@ class WorklogsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+private
+
+  def get_user_tasks(user_id)
+    Project.where("exists (select team_user.user_id from team_task, team_user where team_task.task_id = task.id and team_task.team_id = team_user.team_id and team_user.user_id = ?)", user_id).all
+  end
+
+  def get_user_workitems(user_id)
+    Workitem.where("exists (select team_user.user_id from task_workitem, team_task, team_user where task_workitem.workitem_id = workitem.id and task_workitem.task_id = team_task.task_id and team_task.team_id = team_user.team_id and team_user.user_id = ?)", user_id).all
+  end
+
 end
