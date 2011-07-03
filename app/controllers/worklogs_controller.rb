@@ -22,10 +22,6 @@ class WorklogsController < ApplicationController
   # GET /worklogs/1
   # GET /worklogs/1.xml
   def show
-    # Authentication
-    include ModuleDbAuthenticate
-    before_filter :authenticate
-
     # Find login user.
     @user = User.find_by_login(@current_login)
 
@@ -62,8 +58,6 @@ class WorklogsController < ApplicationController
 
     @user_tasks = get_user_tasks(@user.id)
     @user_workitems = get_user_workitems(@user.id)
-    puts @user_tasks.inspect
-    puts @user_workitems.inspect
 
     @worklog =Report.find_by_id_and_user_id(params[:id], @user.id)
   end
