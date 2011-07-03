@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @worklog.user_id %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= @worklog.task_id %>
+</p>
+
+<p>
+  <b>Workitem:</b>
+  <%= @worklog.workitem_id %>
+</p>
+
+<p>
+  <b>Hours:</b>
+  <%= @worklog.hours %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @worklog.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_worklog_path(@worklog) %> |
+<%= link_to 'Back', worklogs_path %>

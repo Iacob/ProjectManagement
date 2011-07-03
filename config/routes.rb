@@ -9,12 +9,13 @@ ProjectManagement::Application.routes.draw do
 
   resources :users
 
+  resources :worklogs
+
   match "users/:id/statistics" => "users#statistics", :via => [:get, :post]
 
   match "teams/:id/statistics" => "teams#statistics", :via => [:get, :post]
 
   #match "worklog" => "worklog#index", :via => [:get, :post]
-  resources :worklog
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
