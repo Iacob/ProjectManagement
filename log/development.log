@@ -23662,3 +23662,74 @@ Started GET "/worklogs/1" for 127.0.0.1 at Sun Jul 03 18:12:35 +0800 2011
   [1m[36mReport Load (0.2ms)[0m  [1mSELECT `report`.* FROM `report` WHERE `report`.`id` = 1 AND `report`.`user_id` = 1 LIMIT 1[0m
 Rendered worklogs/show.html.erb within layouts/application (11.7ms)
 Completed 200 OK in 61ms (Views: 24.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/holidays" for 127.0.0.1 at Wed Jul 27 00:58:24 -0700 2011
+  Processing by HolidaysController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/holidays" for 127.0.0.1 at Wed Jul 27 00:58:31 -0700 2011
+  Processing by HolidaysController#index as HTML
+  [1m[36mSQL (98.0ms)[0m  [1mdescribe `team_user`[0m
+Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `team_user`
+  [1m[35mSQL (17.6ms)[0m  SHOW TABLES
+  [1m[36mUser Load (104.9ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mHoliday Load (3.0ms)[0m  SELECT `holiday`.* FROM `holiday`
+Rendered holidays/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 418ms (Views: 42.0ms | ActiveRecord: 223.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Wed Jul 27 00:58:40 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_user`[0m
+Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `team_user`
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (13.1ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered projects/index.html.erb within layouts/application (51.8ms)
+Completed 200 OK in 119ms (Views: 79.2ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Wed Jul 27 00:58:43 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mSQL (6.6ms)[0m  describe `team_user`
+Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `team_user`
+  [1m[36mUser Load (3.1ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mUser Load (90.9ms)[0m  SELECT `user`.* FROM `user` ORDER BY login ASC LIMIT 20 OFFSET 0
+  [1m[36mSQL (87.6ms)[0m  [1mSELECT COUNT(*) FROM `user`[0m
+Rendered users/index.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 326ms (Views: 108.6ms | ActiveRecord: 188.1ms)
+
+
+Started GET "/users?page=2" for 127.0.0.1 at Wed Jul 27 00:58:53 -0700 2011
+  Processing by UsersController#index as HTML
+  Parameters: {"page"=>"2"}
+  [1m[35mSQL (2.0ms)[0m  describe `team_user`
+Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mUser Load (22.0ms)[0m  SELECT `user`.* FROM `user` ORDER BY login ASC LIMIT 20 OFFSET 20
+Rendered users/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 63ms (Views: 28.5ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Wed Jul 27 00:59:06 -0700 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `team_user`
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mUser Load (23.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_user`
+Mysql2::Error: Table 'project_management.team_user' doesn't exist: describe `team_user`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (10.5ms)[0m  SELECT `team`.* FROM `team`
+Completed   in 111ms
+
+Mysql2::Error (Table 'project_management.team_user' doesn't exist):
+  app/controllers/users_controller.rb:51:in `edit'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
