@@ -23733,3 +23733,617 @@ Mysql2::Error (Table 'project_management.team_user' doesn't exist):
 Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
 Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.1ms)
 Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+  [1m[36mSQL (90.9ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (412.8ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (1.0ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (93.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (8.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20110531134222)
+  [1m[35mSQL (18.8ms)[0m  CREATE TABLE `user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `login` varchar(255), `crypted_password` varchar(255), `team_id` int(11), `email` varchar(255), `roles` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110531134222')[0m
+Migrating to CreateTeams (20110531134309)
+  [1m[35mSQL (113.0ms)[0m  CREATE TABLE `team` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (52.7ms)[0m  [1mCREATE TABLE `team_user` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `team_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110531134309')
+Migrating to CreateProjects (20110606092957)
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE TABLE `task` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `start_date` date, `end_date` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (9.2ms)[0m  CREATE TABLE `task_workitem` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `task_id` int(11), `workitem_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (25.1ms)[0m  [1mCREATE TABLE `team_task` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `team_id` int(11), `task_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110606092957')
+Migrating to CreateWorkitems (20110606093006)
+  [1m[36mSQL (7.5ms)[0m  [1mCREATE TABLE `workitem` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `descr` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (26.2ms)[0m  CREATE TABLE `task_workitem` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `task_id` int(11), `workitem_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'task_workitem' already exists: CREATE TABLE `task_workitem` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `task_id` int(11), `workitem_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+
+
+Started GET "/teams" for 127.0.0.1 at Sun Jul 31 19:51:01 -0700 2011
+  Processing by TeamsController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/teams" for 127.0.0.1 at Sun Jul 31 19:51:09 -0700 2011
+  Processing by TeamsController#index as HTML
+  [1m[36mSQL (31.5ms)[0m  [1mdescribe `team_user`[0m
+Completed   in 53ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (team_user).):
+  app/models/user.rb:3
+  lib/web_auth.rb:36:in `web_auth_role'
+  lib/web_auth.rb:79:in `authenticate'
+  lib/web_auth.rb:77:in `authenticate'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (63.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Sun Jul 31 19:51:21 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[35mSQL (12.1ms)[0m  describe `team_user`
+Completed   in 17ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (team_user).):
+  app/models/user.rb:3
+  lib/web_auth.rb:36:in `web_auth_role'
+  lib/web_auth.rb:79:in `authenticate'
+  lib/web_auth.rb:77:in `authenticate'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Sun Jul 31 19:51:53 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (9.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mUser Load (87.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+Completed   in 197ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (task_workitem).):
+  app/models/project.rb:3
+  app/controllers/projects_controller.rb:12:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Sun Jul 31 19:52:50 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (2.4ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (3.9ms)[0m  describe `team_task`
+Completed   in 33ms
+
+ActiveRecord::HasAndBelongsToManyAssociationWithPrimaryKeyError (Primary key is not allowed in a has_and_belongs_to_many join table (team_task).):
+  app/models/project.rb:5
+  app/controllers/projects_controller.rb:12:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Sun Jul 31 19:53:15 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task`[0m
+Rendered projects/index.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 106ms (Views: 80.4ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at Sun Jul 31 19:53:28 -0700 2011
+  Processing by ProjectsController#new as HTML
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (2.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (1.1ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT `team`.* FROM `team`
+Rendered projects/_form.html.erb (71.5ms)
+Rendered projects/new.html.erb within layouts/application (78.8ms)
+Completed 200 OK in 152ms (Views: 90.5ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/projects" for 127.0.0.1 at Sun Jul 31 19:53:41 -0700 2011
+  Processing by ProjectsController#create as HTML
+  Parameters: {"start_date"=>{"(1i)"=>"2011", "(2i)"=>"8", "(3i)"=>"1"}, "commit"=>"Create Project", "authenticity_token"=>"CpT7oTHaKh/dq/CIs0pRvH+hA49MkGksUNhQrnt9WBE=", "utf8"=>"✓", "project"=>{"name"=>"project1"}, "end_date"=>{"(1i)"=>"2011", "(2i)"=>"9", "(3i)"=>"1"}}
+  [1m[36mSQL (1.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_task`
+  [1m[36mSQL (4.4ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task`[0m
+  [1m[35mAREL (8.5ms)[0m  INSERT INTO `task` (`created_at`, `name`, `description`, `start_date`, `end_date`, `updated_at`) VALUES ('2011-08-01 02:53:41', 'project1', NULL, NULL, NULL, '2011-08-01 02:53:41')
+  [1m[36mSQL (20.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 132ms
+
+
+Started GET "/projects/1" for 127.0.0.1 at Sun Jul 31 19:53:41 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (1.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (4.8ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.9ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.8ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+Rendered projects/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 78ms (Views: 27.6ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at Sun Jul 31 20:00:15 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (2.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (5.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_user`
+  [1m[36mSQL (5.9ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+Rendered projects/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 84ms (Views: 26.3ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:00:17 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (4.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (6.7ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (2.0ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mTeam Load (1.6ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+ERROR: compiling _app_views_projects__form_html_erb__787201778__620008038_449296 RAISED compile error
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:21: syntax error, unexpected '>'
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:26: syntax error, unexpected '<'
+    <%= f.label :end_date );@output_buffer.safe_concat('<br />
+     ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:27: syntax error, unexpected '(', expecting ')'
+...   ');@output_buffer.append= ( date_select(:end_date, nil) )...
+                              ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:33: syntax error, unexpected kDO_BLOCK, expecting kEND
+');@output_buffer.append_if_string=        @allWorkitems.each do |i|  
+                                                                ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:45: syntax error, unexpected kDO_BLOCK, expecting kEND
+');@output_buffer.append_if_string=        @allTeams.each do |t|  
+                                                            ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:56: syntax error, unexpected kEND, expecting $end
+'); end 
+       ^
+Function body:           def _app_views_projects__form_html_erb__787201778__620008038_449296(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "projects/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@project) do |f| @output_buffer.safe_concat('
+');   if @project.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@project.errors.count, "error") );@output_buffer.safe_concat(' prohibited this project from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @project.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  <div class="field">
+    ');@output_buffer.append= ( f.label :name );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :name );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+
+  <div class="field">
+    ');@output_buffer.append= ( f.label :start_date );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.date :start_date % -->
+    <!-- %= date_select(:start_date, nil) % -->
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( date_select(:end_date, nil) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+
+  Workitems:<br />
+  <div style="border: 1px solid black; min-width:300px; max-width:30%">
+    <div class="field">
+');@output_buffer.append_if_string=        @allWorkitems.each do |i|  
+         _projectWorkitemExists = true if ((!@projectWorkitems.nil?) and @projectWorkitems.exists?(i)) 
+@output_buffer.safe_concat('        ');@output_buffer.append= ( checkbox_and_label("selected_project_workitems", "selected_project_workitems[]", i.name, i.id, _projectWorkitemExists) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	<br />
+');       end 
+@output_buffer.safe_concat('    </div>
+  </div>
+  <br />
+
+  Teams working on this project:<br />
+  <div style="border: 1px solid black; min-width:300px; max-width:30%">
+    <div class="field">
+');@output_buffer.append_if_string=        @allTeams.each do |t|  
+         _projectTeamExists = true if ((!@projectTeams.nil?) and @projectTeams.exists?(t)) 
+@output_buffer.safe_concat('        ');@output_buffer.append= ( checkbox_and_label("selected_project_teams", "selected_project_teams[]", t.name, t.id, _projectTeamExists) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	<br />
+');       end 
+@output_buffer.safe_concat('    </div>
+  </div>
+
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:56:in `compile'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/template.rb:134:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:333:in `render_partial'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:262:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:260:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/partials.rb:378:in `_render_partial'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:31:in `render'
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/edit.html.erb:3:in `_app_views_projects_edit_html_erb__1050752781__620001468_0'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/template.rb:135:in `send'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/template.rb:135:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:54:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/template.rb:127:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:59:in `_render_template'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:56:in `_render_template'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_view/render/rendering.rb:26:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:93:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:17:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/var/lib/gems/1.8/gems/activerecord-3.0.5/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:150:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:440:in `_run__46567664__process_action__155074602__callbacks'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `send'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `send'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/base.rb:119:in `process'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/abstract_controller/rendering.rb:41:in `process'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal.rb:138:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_controller/metal.rb:178:in `action'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/var/lib/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/var/lib/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/var/lib/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/var/lib/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/var/lib/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/head.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:32:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:12:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.5/lib/active_record/query_cache.rb:31:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/rack/logger.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.5/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/static.rb:30:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/application.rb:168:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `send'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/application.rb:77:in `method_missing'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/rack/log_tailer.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rack-1.2.3/lib/rack/server.rb:217:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/commands/server.rb:65:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/commands.rb:30
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/commands.rb:27:in `tap'
+/var/lib/gems/1.8/gems/railties-3.0.5/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered projects/_form.html.erb (90.1ms)
+Rendered projects/edit.html.erb within layouts/application (92.2ms)
+Completed   in 264ms
+
+ActionView::Template::Error (compile error
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:21: syntax error, unexpected '>'
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:26: syntax error, unexpected '<'
+    <%= f.label :end_date );@output_buffer.safe_concat('<br />
+     ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:27: syntax error, unexpected '(', expecting ')'
+...   ');@output_buffer.append= ( date_select(:end_date, nil) )...
+                              ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:33: syntax error, unexpected kDO_BLOCK, expecting kEND
+');@output_buffer.append_if_string=        @allWorkitems.each do |i|  
+                                                                ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:45: syntax error, unexpected kDO_BLOCK, expecting kEND
+');@output_buffer.append_if_string=        @allTeams.each do |t|  
+                                                            ^
+/home/yong/vcs/git/github/ProjectManagement/app/views/projects/_form.html.erb:56: syntax error, unexpected kEND, expecting $end
+'); end 
+       ^):
+    18: 
+    19:   <div class="field">
+    20:     <%= f.label :start_date %><br />
+    21:     <%= f.date :start_date % -->
+    22:     <!-- %= date_select(:start_date, nil) % -->
+    23:   </div>
+    24: 
+  app/views/projects/_form.html.erb:56:in `compile'
+  app/views/projects/edit.html.erb:3:in `_app_views_projects_edit_html_erb__1050752781__620001468_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mTeam Load (1.2ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.8ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:00:33 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (1.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  describe `task_workitem`
+  [1m[36mSQL (3.1ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.9ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+Rendered projects/_form.html.erb (11.1ms)
+Rendered projects/edit.html.erb within layouts/application (18.5ms)
+Completed   in 84ms
+
+ActionView::Template::Error (undefined method `date' for #<ActionView::Helpers::FormBuilder:0xb5faf2e8>):
+    18: 
+    19:   <div class="field">
+    20:     <%= f.label :start_date %><br />
+    21:     <%= f.date :start_date %>
+    22:     <!-- %= date_select(:start_date, nil) % -->
+    23:   </div>
+    24: 
+  app/views/projects/_form.html.erb:21:in `_app_views_projects__form_html_erb__787201778__620907398_449296'
+  app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb__787201778__620907398_449296'
+  app/views/projects/edit.html.erb:3:in `_app_views_projects_edit_html_erb__1050752781__620901888_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.5/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.4ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:00:46 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (2.6ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.5ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.2ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered projects/_form.html.erb (7.2ms)
+Rendered projects/edit.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 69ms (Views: 17.7ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/projects/1" for 127.0.0.1 at Sun Jul 31 20:00:56 -0700 2011
+  Processing by ProjectsController#update as HTML
+  Parameters: {"commit"=>"Update Project", "authenticity_token"=>"CpT7oTHaKh/dq/CIs0pRvH+hA49MkGksUNhQrnt9WBE=", "utf8"=>"✓", "project"=>{"name"=>"project1", "start_date(1i)"=>"2011", "start_date(2i)"=>"5", "start_date(3i)"=>"1"}, "id"=>"1", "end_date"=>{"(1i)"=>"2011", "(2i)"=>"8", "(3i)"=>"1"}}
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (0.6ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  COMMIT
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mAREL (92.8ms)[0m  [1mUPDATE `task` SET `start_date` = '2011-05-01', `updated_at` = '2011-08-01 03:00:56' WHERE `task`.`id` = 1[0m
+  [1m[35mSQL (3.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 157ms
+
+
+Started GET "/projects/1" for 127.0.0.1 at Sun Jul 31 20:00:57 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (5.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.6ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (0.8ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )
+Rendered projects/show.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 106ms (Views: 55.8ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:00:58 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.5ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+  [1m[35mSQL (5.1ms)[0m  describe `team_user`
+  [1m[36mSQL (1.8ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `team`.* FROM `team`
+Rendered projects/_form.html.erb (10.0ms)
+Rendered projects/edit.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 83ms (Views: 27.5ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:01:34 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.5ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (0.4ms)[0m  [1mSELECT `workitem`.* FROM `workitem`[0m
+  [1m[35mSQL (5.1ms)[0m  describe `team_user`
+  [1m[36mSQL (1.4ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.9ms)[0m  SELECT `team`.* FROM `team`
+Rendered projects/_form.html.erb (5.8ms)
+Rendered projects/edit.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 71ms (Views: 17.7ms | ActiveRecord: 15.4ms)
+
+
+Started POST "/projects/1" for 127.0.0.1 at Sun Jul 31 20:01:43 -0700 2011
+  Processing by ProjectsController#update as HTML
+  Parameters: {"commit"=>"Update Project", "authenticity_token"=>"CpT7oTHaKh/dq/CIs0pRvH+hA49MkGksUNhQrnt9WBE=", "utf8"=>"✓", "project"=>{"name"=>"project1", "start_date(1i)"=>"2011", "end_date(3i)"=>"1", "start_date(2i)"=>"5", "start_date(3i)"=>"1", "end_date(1i)"=>"2011", "end_date(2i)"=>"12"}, "id"=>"1"}
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (4.7ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `team_task`
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (5.2ms)[0m  describe `task_workitem`
+  [1m[36mWorkitem Load (1.7ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )[0m
+  [1m[35mSQL (1.9ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (9.0ms)[0m  describe `team_user`
+  [1m[36mSQL (4.7ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mTeam Load (0.4ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  COMMIT
+  [1m[36mSQL (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mAREL (0.9ms)[0m  UPDATE `task` SET `updated_at` = '2011-08-01 03:01:43', `end_date` = '2011-12-01' WHERE `task`.`id` = 1
+  [1m[36mSQL (5.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 155ms
+
+
+Started GET "/projects/1" for 127.0.0.1 at Sun Jul 31 20:01:43 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (1.5ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_user`
+  [1m[36mSQL (1.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mWorkitem Load (0.4ms)[0m  SELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )
+  [1m[36mTeam Load (0.7ms)[0m  [1mSELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )[0m
+Rendered projects/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 62ms (Views: 10.8ms | ActiveRecord: 51.9ms)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:01:45 -0700 2011
+  Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (1.9ms)[0m  describe `team_user`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (2.3ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (1.1ms)[0m  SELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1
+  [1m[36mSQL (3.9ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mWorkitem Load (3.9ms)[0m  SELECT `workitem`.* FROM `workitem`
+  [1m[36mSQL (4.8ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (4.5ms)[0m  describe `team_task`
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `team`.* FROM `team`[0m
+Rendered projects/_form.html.erb (7.5ms)
+Rendered projects/edit.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 188ms (Views: 23.8ms | ActiveRecord: 25.0ms)

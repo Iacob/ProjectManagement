@@ -18,7 +18,7 @@ module CommonHelper
 
   def checkbox_and_label_roles(id, name, selected_roles_str)
 
-    roles = ['admin', 'user']
+    roles = ['admin', 'user', 'manager', 'reporter']
 
     selected_roles_str = '' if selected_roles_str.nil?
     selected_roles = selected_roles_str.split(',')

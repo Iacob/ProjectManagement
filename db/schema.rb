@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20110614042539) do
 
   create_table "task", :force => true do |t|
     t.string   "name"
+    t.string   "description"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
