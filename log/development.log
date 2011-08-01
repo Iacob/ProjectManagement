@@ -24347,3 +24347,37 @@ Started GET "/projects/1/edit" for 127.0.0.1 at Sun Jul 31 20:01:45 -0700 2011
 Rendered projects/_form.html.erb (7.5ms)
 Rendered projects/edit.html.erb within layouts/application (13.6ms)
 Completed 200 OK in 188ms (Views: 23.8ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at Sun Jul 31 23:05:58 -0700 2011
+  Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 0ms
+
+
+Started GET "/projects" for 127.0.0.1 at Sun Jul 31 23:06:02 -0700 2011
+  Processing by ProjectsController#index as HTML
+  [1m[36mSQL (138.7ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (100.8ms)[0m  SHOW TABLES
+  [1m[36mUser Load (109.7ms)[0m  [1mSELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_task`[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT `task`.* FROM `task`
+Rendered projects/index.html.erb within layouts/application (151.7ms)
+Completed 200 OK in 924ms (Views: 309.9ms | ActiveRecord: 352.9ms)
+
+
+Started GET "/projects/1" for 127.0.0.1 at Sun Jul 31 23:06:07 -0700 2011
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (2.9ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `user`.* FROM `user` WHERE `user`.`login` = 'admin' LIMIT 1
+  [1m[36mSQL (5.0ms)[0m  [1mdescribe `task_workitem`[0m
+  [1m[35mSQL (1.4ms)[0m  describe `team_task`
+  [1m[36mProject Load (12.3ms)[0m  [1mSELECT `task`.* FROM `task` WHERE `task`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m  describe `task_workitem`
+  [1m[36mSQL (1.5ms)[0m  [1mdescribe `team_user`[0m
+  [1m[35mSQL (1.7ms)[0m  describe `team_task`
+  [1m[36mWorkitem Load (1.1ms)[0m  [1mSELECT * FROM `workitem` INNER JOIN `task_workitem` ON `workitem`.id = `task_workitem`.workitem_id WHERE (`task_workitem`.task_id = 1 )[0m
+  [1m[35mTeam Load (0.6ms)[0m  SELECT * FROM `team` INNER JOIN `team_task` ON `team`.id = `team_task`.team_id WHERE (`team_task`.task_id = 1 )
+Rendered projects/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 161ms (Views: 26.5ms | ActiveRecord: 29.0ms)
