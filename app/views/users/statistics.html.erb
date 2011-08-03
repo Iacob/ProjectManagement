@@ -15,7 +15,7 @@
 
 <p>
   <b>Login User:</b><br />
-  <%= collection_select "selected_user", :user_id, @allUsers, :id, :login %>
+  <%= collection_select :user, :id, @allUsers, :id, :login %>
 </p>
 
 <p>

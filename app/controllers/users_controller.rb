@@ -131,35 +131,38 @@ class UsersController < ApplicationController
   # GET statistics/user.xml
   def statistics
 
-    @selected_user = { :user_id => ["2"] }
     @user_id
     @user
-    @allUsers
+    @allUsers = User.order('login')
     @start_date
     @end_date
     @report_weeks = {}
 
-    @allUsers = User.order('login')
-    if (!params[:user_id].nil?)
-      @user_id = params[:user_id]
+    # Extract user ID and find the user.
+    @user_id = params[:user].nil?()?nil:params[:user][:id]
+    if @user_id.nil?
+      @user = User.new
+    else
       @user = User.find(@user_id)
     end
 
     _start_date = params[:start_date]
     _end_date = params[:end_date]
-    @start_date
-    @end_date
 
     if !_start_date.nil? && !_start_date.strip().empty?
       @start_date = Date.strptime(_start_date, "%Y-%m-%d")
+    else
+      @start_date = Date.current
     end
 
     if !_end_date.nil? && !_end_date.strip().empty?
       @end_date = Date.strptime(_end_date, "%Y-%m-%d")
+    else
+      @end_date = Date.current
     end
 
-=begin
-    if !_start_date.nil? && _start_date.strip().empty?
+    # If a user is choosen, start calculate.
+    if (!@user.id.nil?)
       # Split date period to weeks.
       _weeks = split_weeks(@start_date, @end_date)
       _weeks.each do |period_start|
@@ -176,7 +179,6 @@ class UsersController < ApplicationController
       end
       # puts @report_weeks.inspect
     end
-=end
 
     respond_to do |format|
       format.html # index.html.erb
