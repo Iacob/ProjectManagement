@@ -127,25 +127,39 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/statistics
-  # GET /users/1/statistics.xml
+  # GET statistics/user
+  # GET statistics/user.xml
   def statistics
 
-    @user = User.find(params[:id])
+    @selected_user = { :user_id => ["2"] }
+    @user_id
+    @user
+    @allUsers
     @start_date
     @end_date
-    @users
-    # @reports
     @report_weeks = {}
 
-    _stat_date = params[:stat_date]
-    unless _stat_date.nil?
-      @start_date = Date.new(_stat_date["start(1i)"].to_i, _stat_date["start(2i)"].to_i, _stat_date["start(3i)"].to_i)
-      @end_date = Date.new(_stat_date["end(1i)"].to_i, _stat_date["end(2i)"].to_i, _stat_date["end(3i)"].to_i)
+    @allUsers = User.order('login')
+    if (!params[:user_id].nil?)
+      @user_id = params[:user_id]
+      @user = User.find(@user_id)
+    end
 
-      #_query = get_report_query(@user.id, @start_date, @end_date)
-      #@reports = _query.all
+    _start_date = params[:start_date]
+    _end_date = params[:end_date]
+    @start_date
+    @end_date
 
+    if !_start_date.nil? && !_start_date.strip().empty?
+      @start_date = Date.strptime(_start_date, "%Y-%m-%d")
+    end
+
+    if !_end_date.nil? && !_end_date.strip().empty?
+      @end_date = Date.strptime(_end_date, "%Y-%m-%d")
+    end
+
+=begin
+    if !_start_date.nil? && _start_date.strip().empty?
       # Split date period to weeks.
       _weeks = split_weeks(@start_date, @end_date)
       _weeks.each do |period_start|
@@ -160,9 +174,9 @@ class UsersController < ApplicationController
           @report_weeks[period_start] = _query.all
         end
       end
-      puts @report_weeks.inspect
-
+      # puts @report_weeks.inspect
     end
+=end
 
     respond_to do |format|
       format.html # index.html.erb

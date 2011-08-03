@@ -1,25 +1,29 @@
+<link type="text/css" href="/jquery/css/smoothness/jquery-ui-1.8.13.custom.css" rel="Stylesheet" />	
+<script type="text/javascript" src="/jquery/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="/jquery/js/jquery-ui-1.8.13.custom.min.js"></script>
+
 <p id="notice"><%= notice %></p>
 
 <center><p><b>User Statistics</b></p></center>
 
-<p>
-  <b>Id:</b>
-  <%= @user.id %>
-</p>
-
-<p>
-  <b>Login Name:</b>
-  <%= @user.login %>
-</p>
-
 <%= form_tag(:method => :POST) do %>
 
 <p>
-  Start Date: <%= date_select(:stat_date, :start, :default => @start_date) %>
+  <b>Id:</b>
+  <!-- %= @user.id % -->
 </p>
 
 <p>
-  End Date: <%= date_select(:stat_date, :end, :default => @end_date) %>
+  <b>Login User:</b><br />
+  <%= collection_select "selected_user", :user_id, @allUsers, :id, :login %>
+</p>
+
+<p>
+  <b>Start Date:</b> <%= text_field_tag :start_date, @start_date %>
+</p>
+
+<p>
+  <b>End Date:</b> <%= text_field_tag :end_date, @end_date %>
 </p>
 
 <%= submit_tag 'Start Calculate' %>
@@ -56,3 +60,8 @@
 <% end %>
 
 <%= link_to 'Back', users_path %>
+
+<script>
+  $('#start_date').datepicker({dateFormat: "yy-mm-dd"});
+  $('#end_date').datepicker({dateFormat: "yy-mm-dd"});
+</script>

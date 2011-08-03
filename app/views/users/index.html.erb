@@ -3,8 +3,9 @@
 <div style="border: 1px solid black; padding: 5px">
 <table>
   <tr>
-    <th style="text-align:left;min-width:100px">Id</th>
-    <th style="text-align:left;min-width:200px">Login Name</th>
+    <th style="text-align:left;min-width:50px">Id</th>
+    <th style="text-align:left;min-width:80px">Login Name</th>
+    <th style="text-align:left">Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
   <tr>
     <td><%= user.id %></td>
     <td><%= user.login %></td>
+    <td><span style="margin-right: 5px"><%= user.name %></span></td>
     <td><%= image_tag('icons/detail.png', :class => :icon) %><%= link_to 'Show', user %></td>
     <td><%= image_tag('icons/edit.png', :class => :icon) %><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= image_tag('icons/delete.png', :class => :icon) %><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

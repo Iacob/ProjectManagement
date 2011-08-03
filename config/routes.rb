@@ -11,9 +11,11 @@ ProjectManagement::Application.routes.draw do
 
   resources :worklogs
 
-  match "users/:id/statistics" => "users#statistics", :via => [:get, :post]
+  #match "users/:id/statistics" => "users#statistics", :via => [:get, :post]
+  #match "teams/:id/statistics" => "teams#statistics", :via => [:get, :post]
 
-  match "teams/:id/statistics" => "teams#statistics", :via => [:get, :post]
+  match "statistics/user" => "users#statistics", :via => [:get, :post]
+  match "teams/statistics" => "teams#statistics", :via => [:get, :post]
 
   #match "worklog" => "worklog#index", :via => [:get, :post]
 
