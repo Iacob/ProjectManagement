@@ -9,12 +9,7 @@
 <%= form_tag(:method => :POST) do %>
 
 <p>
-  <b>Id:</b>
-  <!-- %= @user.id % -->
-</p>
-
-<p>
-  <b>Login User:</b><br />
+  <b>Login User:</b>
   <%= collection_select :user, :id, @allUsers, :id, :login %>
 </p>
 
@@ -33,33 +28,37 @@
 <br />
 
 <% unless @report_weeks.nil? %>
-<table>
-  <tr>
-    <th><div style="margin-right: 10px">Project name</div></th>
-    <th><div style="margin-right: 10px">Workitem name</div></th>
-    <th>Hours</th>
-  </tr>
 
 <% @report_weeks.keys.sort.each do |week_start| %>
-  <tr>
-    <td colspan="3">
-      <i><%= week_start %></i>
-      <div style="max-height:1;min-width:100%;border:1px solid black;"></div>
-    </td>
-  </tr>
-  <% @report_weeks[week_start].each do |report| %>
+
+  <i><%= week_start %></i>
+  <div style="max-height:1;min-width:100%;border:1px solid black;"></div>
+
+  <table>
+    <thead>
     <tr>
+      <th><div style="margin-right: 10px">Date</div></th>
+      <th><div style="margin-right: 10px">Project name</div></th>
+      <th><div style="margin-right: 10px">Workitem name</div></th>
+      <th><div style="margin-right: 10px">Hours</div></th>
+      <th><div style="margin-right: 10px">Description</div></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @report_weeks[week_start].each do |report| %>
+    <tr>
+      <td><%= report.date %></td>
       <td><%= report.task_name %></td>
       <td><%= report.workitem_name %></td>
       <td><%= report.hours %></td>
+      <td><%= report.description %></td>
     </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br />
 <% end %>
 <% end %>
-</table>
-<br />
-<% end %>
-
-<%= link_to 'Back', users_path %>
 
 <script>
   $('#start_date').datepicker({dateFormat: "yy-mm-dd"});

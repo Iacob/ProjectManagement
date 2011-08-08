@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
+
     # @users = User.all
     # @users = User.paginate :page => params[:page], :order => 'created_at DESC'
     @users = User.paginate :page => params[:page], :order => 'login ASC', :per_page => 20
@@ -190,6 +191,13 @@ class UsersController < ApplicationController
 private
 
   def get_report_query(user_id, start_date, end_date)
+    Report.select("report.hours, task.name as task_name, workitem.name as workitem_name, report.date, report.description") \
+      .joins(:user, :project, :workitem) \
+      .where("report.date" => start_date..end_date, "report.user_id" => user_id)\
+      .order("date, task_id, workitem_id")
+  end
+
+  def get_report_query_group(user_id, start_date, end_date)
     Report.select("sum(hours) as hours, task.name as task_name, workitem.name as workitem_name") \
       .joins(:user, :project, :workitem) \
       .where("report.date" => start_date..end_date, "report.user_id" => user_id)\
